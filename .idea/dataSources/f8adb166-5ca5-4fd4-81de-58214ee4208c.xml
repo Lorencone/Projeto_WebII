@@ -1005,252 +1005,253 @@
       <Collation>utf8_czech_ci</Collation>
     </table>
     <table id="256" parent="2" name="perfil"/>
-    <table id="257" parent="2" name="trabalho">
+    <table id="257" parent="2" name="permissao"/>
+    <table id="258" parent="2" name="trabalho">
       <Collation>utf8_czech_ci</Collation>
     </table>
-    <table id="258" parent="2" name="usuario"/>
-    <column id="259" parent="244" name="id_classificacao">
+    <table id="259" parent="2" name="usuario"/>
+    <column id="260" parent="244" name="id_classificacao">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="260" parent="244" name="nome">
+    <column id="261" parent="244" name="nome">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="261" parent="244" name="idade">
+    <column id="262" parent="244" name="idade">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="262" parent="244" name="PRIMARY">
+    <key id="263" parent="244" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_classificacao</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="263" parent="245" name="id_equipe">
+    <column id="264" parent="245" name="id_equipe">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="245" name="nome">
+    <column id="265" parent="245" name="nome">
       <Position>2</Position>
       <DataType>varchar(200)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="265" parent="245" name="sexo">
+    <column id="266" parent="245" name="sexo">
       <Position>3</Position>
       <DataType>char(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="266" parent="245" name="data_nascimento">
+    <column id="267" parent="245" name="data_nascimento">
       <Position>4</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="267" parent="245" name="id_pais">
+    <column id="268" parent="245" name="id_pais">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="268" parent="245" name="fk_equipe_pais1_idx">
+    <index id="269" parent="245" name="fk_equipe_pais1_idx">
       <ColNames>id_pais</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="269" parent="245" name="PRIMARY">
+    <key id="270" parent="245" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_equipe</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="270" parent="245" name="fk_equipe_pais1">
+    <foreign-key id="271" parent="245" name="fk_equipe_pais1">
       <ColNames>id_pais</ColNames>
       <RefSchemaName>filmes</RefSchemaName>
       <RefTableName>pais</RefTableName>
       <RefColNames>id_pais</RefColNames>
     </foreign-key>
-    <column id="271" parent="246" name="id_equipe">
+    <column id="272" parent="246" name="id_equipe">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="272" parent="246" name="id_trabalho">
+    <column id="273" parent="246" name="id_trabalho">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="273" parent="246" name="fk_equipe_has_trabalho_equipe_idx">
+    <index id="274" parent="246" name="fk_equipe_has_trabalho_equipe_idx">
       <ColNames>id_equipe</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="274" parent="246" name="fk_equipe_has_trabalho_trabalho1_idx">
+    <index id="275" parent="246" name="fk_equipe_has_trabalho_trabalho1_idx">
       <ColNames>id_trabalho</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="275" parent="246" name="PRIMARY">
+    <key id="276" parent="246" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_equipe
 id_trabalho</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="276" parent="246" name="fk_equipe_has_trabalho_equipe">
+    <foreign-key id="277" parent="246" name="fk_equipe_has_trabalho_equipe">
       <ColNames>id_equipe</ColNames>
       <RefSchemaName>filmes</RefSchemaName>
       <RefTableName>equipe</RefTableName>
       <RefColNames>id_equipe</RefColNames>
     </foreign-key>
-    <foreign-key id="277" parent="246" name="fk_equipe_has_trabalho_trabalho1">
+    <foreign-key id="278" parent="246" name="fk_equipe_has_trabalho_trabalho1">
       <ColNames>id_trabalho</ColNames>
       <RefSchemaName>filmes</RefSchemaName>
       <RefTableName>trabalho</RefTableName>
       <RefColNames>id_trabalho</RefColNames>
     </foreign-key>
-    <column id="278" parent="247" name="id_filme">
+    <column id="279" parent="247" name="id_filme">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="279" parent="247" name="nome">
+    <column id="280" parent="247" name="nome">
       <Position>2</Position>
       <DataType>varchar(200)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="280" parent="247" name="estreia">
+    <column id="281" parent="247" name="estreia">
       <Position>3</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="281" parent="247" name="bilheteria">
+    <column id="282" parent="247" name="bilheteria">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="282" parent="247" name="duracao">
+    <column id="283" parent="247" name="duracao">
       <Position>5</Position>
       <DataType>time|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="283" parent="247" name="sinopse">
+    <column id="284" parent="247" name="sinopse">
       <Position>6</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="284" parent="247" name="critica">
+    <column id="285" parent="247" name="critica">
       <Position>7</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="285" parent="247" name="trailer">
+    <column id="286" parent="247" name="trailer">
       <Position>8</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="247" name="assistir">
+    <column id="287" parent="247" name="assistir">
       <Position>9</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="247" name="indicacao">
+    <column id="288" parent="247" name="indicacao">
       <Position>10</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="247" name="gasto">
+    <column id="289" parent="247" name="gasto">
       <Position>11</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="289" parent="247" name="imagem">
+    <column id="290" parent="247" name="imagem">
       <Position>12</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="247" name="estudio">
+    <column id="291" parent="247" name="estudio">
       <Position>13</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="247" name="id_classificacao">
+    <column id="292" parent="247" name="id_classificacao">
       <Position>14</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="247" name="id_pais">
+    <column id="293" parent="247" name="id_pais">
       <Position>15</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="247" name="id_equipe">
+    <column id="294" parent="247" name="id_equipe">
       <Position>16</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="247" name="id_trabalho">
+    <column id="295" parent="247" name="id_trabalho">
       <Position>17</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="295" parent="247" name="fk_filme_classificacao1_idx">
+    <index id="296" parent="247" name="fk_filme_classificacao1_idx">
       <ColNames>id_classificacao</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="296" parent="247" name="fk_filme_pais1_idx">
+    <index id="297" parent="247" name="fk_filme_pais1_idx">
       <ColNames>id_pais</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="297" parent="247" name="fk_filme_equipe_has_trabalho1_idx">
+    <index id="298" parent="247" name="fk_filme_equipe_has_trabalho1_idx">
       <ColNames>id_equipe
 id_trabalho</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="298" parent="247" name="PRIMARY">
+    <key id="299" parent="247" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_filme</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="299" parent="247" name="fk_filme_classificacao1">
+    <foreign-key id="300" parent="247" name="fk_filme_classificacao1">
       <ColNames>id_classificacao</ColNames>
       <RefSchemaName>filmes</RefSchemaName>
       <RefTableName>classificacao</RefTableName>
       <RefColNames>id_classificacao</RefColNames>
     </foreign-key>
-    <foreign-key id="300" parent="247" name="fk_filme_pais1">
+    <foreign-key id="301" parent="247" name="fk_filme_pais1">
       <ColNames>id_pais</ColNames>
       <RefSchemaName>filmes</RefSchemaName>
       <RefTableName>pais</RefTableName>
       <RefColNames>id_pais</RefColNames>
     </foreign-key>
-    <foreign-key id="301" parent="247" name="fk_filme_equipe_has_trabalho1">
+    <foreign-key id="302" parent="247" name="fk_filme_equipe_has_trabalho1">
       <ColNames>id_equipe
 id_trabalho</ColNames>
       <RefSchemaName>filmes</RefSchemaName>
@@ -1258,309 +1259,353 @@ id_trabalho</ColNames>
       <RefColNames>id_equipe
 id_trabalho</RefColNames>
     </foreign-key>
-    <column id="302" parent="248" name="id_filme">
+    <column id="303" parent="248" name="id_filme">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="303" parent="248" name="id_genero">
+    <column id="304" parent="248" name="id_genero">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="304" parent="248" name="fk_filme_has_genero_filme1_idx">
+    <index id="305" parent="248" name="fk_filme_has_genero_filme1_idx">
       <ColNames>id_filme</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="305" parent="248" name="fk_filme_has_genero_genero1_idx">
+    <index id="306" parent="248" name="fk_filme_has_genero_genero1_idx">
       <ColNames>id_genero</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="306" parent="248" name="PRIMARY">
+    <key id="307" parent="248" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_filme
 id_genero</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="307" parent="248" name="fk_filme_has_genero_filme1">
+    <foreign-key id="308" parent="248" name="fk_filme_has_genero_filme1">
       <ColNames>id_filme</ColNames>
       <RefSchemaName>filmes</RefSchemaName>
       <RefTableName>filme</RefTableName>
       <RefColNames>id_filme</RefColNames>
     </foreign-key>
-    <foreign-key id="308" parent="248" name="fk_filme_has_genero_genero1">
+    <foreign-key id="309" parent="248" name="fk_filme_has_genero_genero1">
       <ColNames>id_genero</ColNames>
       <RefSchemaName>filmes</RefSchemaName>
       <RefTableName>genero</RefTableName>
       <RefColNames>id_genero</RefColNames>
     </foreign-key>
-    <column id="309" parent="249" name="id_filme">
+    <column id="310" parent="249" name="id_filme">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="310" parent="249" name="id_idioma">
+    <column id="311" parent="249" name="id_idioma">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="311" parent="249" name="fk_filme_has_idioma_filme1_idx">
+    <index id="312" parent="249" name="fk_filme_has_idioma_filme1_idx">
       <ColNames>id_filme</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="312" parent="249" name="fk_filme_has_idioma_idioma1_idx">
+    <index id="313" parent="249" name="fk_filme_has_idioma_idioma1_idx">
       <ColNames>id_idioma</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="313" parent="249" name="PRIMARY">
+    <key id="314" parent="249" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_filme
 id_idioma</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="314" parent="249" name="fk_filme_has_idioma_filme1">
+    <foreign-key id="315" parent="249" name="fk_filme_has_idioma_filme1">
       <ColNames>id_filme</ColNames>
       <RefSchemaName>filmes</RefSchemaName>
       <RefTableName>filme</RefTableName>
       <RefColNames>id_filme</RefColNames>
     </foreign-key>
-    <foreign-key id="315" parent="249" name="fk_filme_has_idioma_idioma1">
+    <foreign-key id="316" parent="249" name="fk_filme_has_idioma_idioma1">
       <ColNames>id_idioma</ColNames>
       <RefSchemaName>filmes</RefSchemaName>
       <RefTableName>idioma</RefTableName>
       <RefColNames>id_idioma</RefColNames>
     </foreign-key>
-    <column id="316" parent="250" name="id_filme">
+    <column id="317" parent="250" name="id_filme">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="317" parent="250" name="id_legenda">
+    <column id="318" parent="250" name="id_legenda">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="318" parent="250" name="fk_filme_has_legenda_filme1_idx">
+    <index id="319" parent="250" name="fk_filme_has_legenda_filme1_idx">
       <ColNames>id_filme</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="319" parent="250" name="fk_filme_has_legenda_legenda1_idx">
+    <index id="320" parent="250" name="fk_filme_has_legenda_legenda1_idx">
       <ColNames>id_legenda</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="320" parent="250" name="PRIMARY">
+    <key id="321" parent="250" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_filme
 id_legenda</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="321" parent="250" name="fk_filme_has_legenda_filme1">
+    <foreign-key id="322" parent="250" name="fk_filme_has_legenda_filme1">
       <ColNames>id_filme</ColNames>
       <RefSchemaName>filmes</RefSchemaName>
       <RefTableName>filme</RefTableName>
       <RefColNames>id_filme</RefColNames>
     </foreign-key>
-    <foreign-key id="322" parent="250" name="fk_filme_has_legenda_legenda1">
+    <foreign-key id="323" parent="250" name="fk_filme_has_legenda_legenda1">
       <ColNames>id_legenda</ColNames>
       <RefSchemaName>filmes</RefSchemaName>
       <RefTableName>legenda</RefTableName>
       <RefColNames>id_legenda</RefColNames>
     </foreign-key>
-    <column id="323" parent="251" name="id_genero">
+    <column id="324" parent="251" name="id_genero">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="324" parent="251" name="nome">
+    <column id="325" parent="251" name="nome">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="325" parent="251" name="imagem">
+    <column id="326" parent="251" name="imagem">
       <Position>3</Position>
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="326" parent="251" name="PRIMARY">
+    <key id="327" parent="251" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_genero</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="327" parent="252" name="id_idioma">
+    <column id="328" parent="252" name="id_idioma">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="328" parent="252" name="nome">
+    <column id="329" parent="252" name="nome">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="329" parent="252" name="PRIMARY">
+    <key id="330" parent="252" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_idioma</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="330" parent="253" name="id_legenda">
+    <column id="331" parent="253" name="id_legenda">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="331" parent="253" name="nome">
+    <column id="332" parent="253" name="nome">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="332" parent="253" name="PRIMARY">
+    <key id="333" parent="253" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_legenda</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="333" parent="254" name="id_pagina">
+    <column id="334" parent="254" name="id_pagina">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="334" parent="254" name="nome">
+    <column id="335" parent="254" name="nome">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="335" parent="254" name="caminho">
+    <column id="336" parent="254" name="caminho">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="336" parent="254" name="publica">
+    <column id="337" parent="254" name="publica">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="337" parent="254" name="PRIMARY">
+    <key id="338" parent="254" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_pagina</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="338" parent="255" name="id_pais">
+    <column id="339" parent="255" name="id_pais">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="339" parent="255" name="nome">
+    <column id="340" parent="255" name="nome">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="340" parent="255" name="PRIMARY">
+    <key id="341" parent="255" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_pais</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="341" parent="256" name="id_perfil">
+    <column id="342" parent="256" name="id_perfil">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="342" parent="256" name="nome">
+    <column id="343" parent="256" name="nome">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="343" parent="256" name="PRIMARY">
+    <key id="344" parent="256" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_perfil</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="344" parent="257" name="id_trabalho">
+    <column id="345" parent="257" name="id_permissao">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="345" parent="257" name="nome">
+    <column id="346" parent="257" name="id_perfil">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="347" parent="257" name="id_pagina">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="348" parent="257" name="fk_permissao_perfil1_idx">
+      <ColNames>id_perfil</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="349" parent="257" name="fk_permissao_pagina1_idx">
+      <ColNames>id_pagina</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="350" parent="257" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_permissao</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="351" parent="257" name="fk_permissao_perfil1">
+      <ColNames>id_perfil</ColNames>
+      <RefSchemaName>filmes</RefSchemaName>
+      <RefTableName>perfil</RefTableName>
+      <RefColNames>id_perfil</RefColNames>
+    </foreign-key>
+    <foreign-key id="352" parent="257" name="fk_permissao_pagina1">
+      <ColNames>id_pagina</ColNames>
+      <RefSchemaName>filmes</RefSchemaName>
+      <RefTableName>pagina</RefTableName>
+      <RefColNames>id_pagina</RefColNames>
+    </foreign-key>
+    <column id="353" parent="258" name="id_trabalho">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="354" parent="258" name="nome">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="346" parent="257" name="PRIMARY">
+    <key id="355" parent="258" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_trabalho</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="347" parent="258" name="id_usuario">
+    <column id="356" parent="259" name="id_usuario">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="348" parent="258" name="nome">
+    <column id="357" parent="259" name="nome">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="349" parent="258" name="sexo">
+    <column id="358" parent="259" name="sexo">
       <Position>3</Position>
       <DataType>char(1)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="350" parent="258" name="email">
+    <column id="359" parent="259" name="email">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="351" parent="258" name="senha">
+    <column id="360" parent="259" name="senha">
       <Position>5</Position>
       <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="352" parent="258" name="id_perfil">
+    <column id="361" parent="259" name="id_perfil">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="353" parent="258" name="fk_usuario_perfil1_idx">
+    <index id="362" parent="259" name="fk_usuario_perfil1_idx">
       <ColNames>id_perfil</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="354" parent="258" name="PRIMARY">
+    <key id="363" parent="259" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_usuario</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="355" parent="258" name="fk_usuario_perfil1">
+    <foreign-key id="364" parent="259" name="fk_usuario_perfil1">
       <ColNames>id_perfil</ColNames>
       <RefSchemaName>filmes</RefSchemaName>
       <RefTableName>perfil</RefTableName>
