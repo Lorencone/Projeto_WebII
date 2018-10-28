@@ -60,7 +60,7 @@ class Genero
     public function inserir($dados)
     {
         $nome = $dados['nome'];
-        $imagem = $dados['imagem'];
+        $imagem = $_FILES['foto']['name'];
         $conexao = new Conexao();
         $sql = "insert into genero (nome, imagem) values ('$nome', '$imagem')";
         print_r($sql);
@@ -72,7 +72,7 @@ class Genero
     {
         $id_genero = $dados['id_genero'];
         $nome = $dados['nome'];
-        $imagem = $dados['imagem'];
+        $imagem = $_FILES['foto']['name'];
         $conexao = new Conexao();
         $sql = "update genero set 
                 nome = '$nome',
@@ -91,6 +91,27 @@ class Genero
         print_r($sql);
         die;
         return $conexao->executar($sql);
+    }
+
+    public function uploadFoto()
+    {
+        if ($_FILES['foto']['erro'] == UPLOAD_ERR_OK){
+            $origem = $_FILES['foto']['tmp_name'];
+            $destino = '../upload/genero/' . $_FILES['foto']['name'];
+
+            move_uploaded_file($origem, $destino);
+            //TesteS
+        }
+    }
+
+    public function existeNome($nome)
+    {
+        $conexao = new Conexao();
+
+        $sql = "SELECT COUNT(nome) qtd FROM genero WHERE nome = '$nome'";
+        $dados = $conexao->recuperarDados($sql);
+
+        return $dados[0]['qtd'];
     }
 }
 ?>

@@ -129,5 +129,14 @@ class Equipe
         return $conexao->executar($sql);
     }
 
+    public function existeNome($nome)
+    {
+        $conexao = new Conexao();
+
+        $sql = "SELECT COUNT(nome) qtd FROM equipe WHERE nome = '$nome'";
+        $dados = $conexao->recuperarDados($sql);
+
+        return $dados[0]['qtd'];
+    }
 }
 ?>

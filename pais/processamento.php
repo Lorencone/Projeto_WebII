@@ -14,5 +14,16 @@ switch ($_GET['acao']) {
     case 'excluir':
         $pais->deletar($_GET['id_pais']);
         break;
+
+    case 'verificar_nome':
+        $existe = $filme->existeNome($_GET['nome']);
+
+        if ($existe){
+
+            echo "<div class='alert' style='background: #2093ee; color: #ffffff'><h3 class='text-center'>Já existe {$existe} pais chamado de {$_GET['nome']}, informe outro.</h3></div>";
+        }
+
+        die;
+        break;
 }
 header('location: ../cadastro/index.php#pais');
