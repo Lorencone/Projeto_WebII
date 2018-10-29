@@ -1,8 +1,7 @@
 <?php
 include_once ('../conexao/conectar.php');
-
-$genero = new Genero();
-$ageneros = $genero->recuperarDados();
+$generos = new Genero();
+$ageneros = $generos->recuperarDados();
 ?>
     <div class="container" style="margin-top: 60px;">
         <h2>Gênero</h2>
@@ -15,18 +14,22 @@ $ageneros = $genero->recuperarDados();
             <tr>
                 <th>Ações</th>
                 <th>ID</th>
-                <th>Gênero</th>
+                <th>Nome</th>
             </tr>
             </thead>
             <?php
             // Foreach para exibição do resultado da consulta
             foreach ($ageneros as $genero) {
-                echo "
-        <tr>
-            <td><a href='../genero/formulario.php?id_genero={$genero['id_genero']}' class='btn btn-info'>Alterar</a> </td>
-            <td>{$genero['id_genero'] }</td>
-            <td>{$genero['nome'] }</td>
-        </tr>";
+                ?>
+                <tr>
+                    <td>
+                        <a href="../genero/formulario.php?&id_genero=<?= $genero['id_genero']?>" class="btn btn-info">Alterar</a>
+                        <a href="../genero/processamento.php?acao=exluir&id_genero=<?= $genero['id_genero']?>" class="btn btn-info">Excluir</a>
+                    </td>
+                    <td><?= $genero['id_genero']?></td>
+                    <td><?= $genero['nome']?></td>
+                </tr>"
+                <?php
             }
             ?>
         </table>

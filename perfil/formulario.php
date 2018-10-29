@@ -18,16 +18,12 @@ include_once("../cabecalho.php");
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="nome" name="nome" value="<?= $perfil->getNome(); ?>">
                 </div>
+                <div id="mensagemNome" role="alert"></div>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-primary">Salvar</button>
                     <button type="reset" class="btn btn-info">Limpar</button>
-                    <?php
-                    if(!empty($_GET['id_perfil'])){
-                        echo "<a href='../perfil/processamento.php?acao=excluir&id_perfil={$perfil->getIdPerfil()}' class='btn btn-warning'>Excluir</a>";
-                    }
-                    ?>
                     <a href="../cadastro/index.php#perfil" class="btn btn-danger">Voltar</a>
                 </div>
             </div>
@@ -36,3 +32,19 @@ include_once("../cabecalho.php");
 <?php
 include_once("../rodape.php");
 ?>
+<script>
+    // AJAX para verificação do nome
+    $('#nome').change(function () {
+
+        $.ajax({
+            url: 'processamento.php?acao=verificar_nome&' + $('#nome').serialize(),
+            success: function (dados) {
+                $('#mensagemNome').html(dados);
+            }
+        });
+
+        // Verificação em JQUERY Load
+        // $('#mensagemNome').load('processamento.php?acao=verificar_nome&nome=' + $('#nome').val());
+
+    });
+</script>

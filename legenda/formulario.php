@@ -18,16 +18,12 @@ include_once("../cabecalho.php");
                 <div class="col-sm-10">
                     <input type="text" class="form-control" id="nome" name="nome" value="<?= $legenda->getNome(); ?>">
                 </div>
+                <div id="mensagemNome" role="alert"></div>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" class="btn btn-success">Salvar</button>
                     <button type="reset" class="btn btn-info">Limpar</button>
-                    <?php
-                    if(!empty($_GET['id_legenda'])){
-                        echo "<a href='../legenda/processamento.php?acao=excluir&id_legenda={$legenda->getIdLegenda()}' class='btn btn-warning'>Excluir</a>";
-                    }
-                    ?>
                     <a href="../cadastro/index.php#legenda" class="btn btn-danger">Voltar</a>
                 </div>
             </div>
@@ -36,3 +32,19 @@ include_once("../cabecalho.php");
 <?php
 include_once("../rodape.php");
 ?>
+<script>
+    // AJAX para verificação do nome
+    $('#nome').change(function () {
+
+        $.ajax({
+            url: 'processamento.php?acao=verificar_nome&' + $('#nome').serialize(),
+            success: function (dados) {
+                $('#mensagemNome').html(dados);
+            }
+        });
+
+        // Verificação em JQUERY Load
+        // $('#mensagemNome').load('processamento.php?acao=verificar_nome&nome=' + $('#nome').val());
+
+    });
+</script>

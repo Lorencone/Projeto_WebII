@@ -8,3 +8,6 @@ include_once ('../idioma/Idioma.php');
 include_once ('../legenda/Legenda.php');
 include_once ('../pais/Pais.php');
 include_once ('../genero/Genero.php');
+include_once ('../perfil/Perfil.php');
+include_once ('../pagina/Pagina.php');
+include_once ('../usuario/Usuario.php');

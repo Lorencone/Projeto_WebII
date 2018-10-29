@@ -1,6 +1,5 @@
 <?php
 include_once ('../conexao/conectar.php');
-
 $perfils = new Perfil();
 $aperfils = $perfils->recuperarDados();
 ?>
@@ -16,20 +15,21 @@ $aperfils = $perfils->recuperarDados();
                 <th>Ações</th>
                 <th>ID</th>
                 <th>Nome</th>
-                <th>Sexo</th>
-
-
             </tr>
             </thead>
             <?php
             // Foreach para exibição do resultado da consulta
             foreach ($aperfils as $perfil) {
-                echo "
-            <tr>
-                <td><a href='../perfil/formulario.php?&id_perfil={$perfil['id_perfil']}' class='btn btn-info'>Alterar</a></td> 
-                <td>{$perfil['id_perfil'] }</td>
-                <td>{$perfil['nome'] }</td>   
-            </tr>";
+                ?>
+                <tr>
+                    <td>
+                        <a href="../perfil/formulario.php?&id_perfil=<?= $perfil['id_perfil']?>" class="btn btn-info">Alterar</a>
+                        <a href="../perfil/processamento.php?acao=exluir&id_perfil=<?= $perfil['id_perfil']?>" class="btn btn-info">Excluir</a>
+                    </td>
+                    <td><?= $perfil['id_perfil']?></td>
+                    <td><?= $perfil['nome']?></td>
+                </tr>"
+                <?php
             }
             ?>
         </table>

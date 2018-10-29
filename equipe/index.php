@@ -16,21 +16,22 @@ $aequipes = $equipes->recuperarDados();
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Sexo</th>
-
-
             </tr>
             </thead>
             <?php
-            // Foreach para exibiÃ§Ã£o do resultado da consulta
+            // Foreach para exibição do resultado da consulta
             foreach ($aequipes as $equipe) {
-                echo "
-            <tr>
-                <td><a href='../equipe/formulario.php?&id_equipe={$equipe['id_equipe']}' class='btn btn-info'>Alterar</a></td> 
-                <td>{$equipe['id_equipe'] }</td>
-                <td>{$equipe['nome'] }</td>
-                <td>{$equipe['sexo'] }</td>
-    
-            </tr>";
+                ?>
+                <tr>
+                    <td>
+                        <a href="../equipe/formulario.php?&id_equipe=<?= $equipe['id_equipe']?>" class="btn btn-info">Alterar</a>
+                        <a href="../equipe/processamento.php?acao=exluir&id_equipe=<?= $equipe['id_equipe']?>" class="btn btn-info">Excluir</a>
+                    </td>
+                    <td><?= $equipe['id_equipe']?></td>
+                    <td><?= $equipe['nome']?></td>
+                    <td><?= $equipe['sexo']?></td>
+                </tr>"
+                <?php
             }
             ?>
         </table>
