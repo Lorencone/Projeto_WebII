@@ -97,12 +97,13 @@ class Usuario{
     {
         $nome = $dados['nome'];
         $sexo = $dados['sexo'];
-        $email = $dados['data_nascimento'];
-        $id_perfil = $dados['id_pais'];
+        $email = $dados['email'];
+        $senha = $dados['senha'];
+        $id_perfil = $dados['id_perfil'];
 
         $conexao = new Conexao();
         $sql = "insert into usuario (nome, sexo, email, senha, id_perfil) 
-                values ('$nome', '$sexo','$email', '$id_perfil')";
+                values ('$nome', '$sexo','$email', '".md5($senha)."', '$id_perfil')";
 
         print_r($sql);
         die;
@@ -114,7 +115,8 @@ class Usuario{
         $id_usuario = $dados['id_usuario'];
         $nome = $dados['nome'];
         $sexo = $dados['sexo'];
-        $email = $dados['data_nascimento'];
+        $email = $dados['email'];
+        $senha = $dados['senha'];
         $id_perfil = $dados['id_pais'];
 
         $conexao = new Conexao();
@@ -123,6 +125,7 @@ class Usuario{
                 nome = '$nome' , 
                 sexo = '$sexo', 
                 email = '$email', 
+                senha = '".md5($senha)."', 
                 id_perfil = '$id_perfil'
 
                 WHERE id_usuario = '$id_usuario'";
@@ -149,5 +152,33 @@ class Usuario{
         $dados = $conexao->recuperarDados($sql);
 
         return $dados[0]['qtd'];
+    }
+
+    public function logar($dados)
+    {
+
+        $email = $dados['email'];
+        $senha  = md5($dados['senha']);
+
+        $conexao = new Conexao();
+
+
+        $sql = "select * from usuario where email = '$email' and senha = '$senha'";
+
+
+        $dados = $conexao->recuperarDados($sql);
+
+//        print_r($sql);
+//        echo "<br>";
+//        print_r($dados);
+
+        if (count($dados)){
+            $nome = $dados[0]['nome'];
+            print_r($nome);
+        }
+        die;
+
+
+        return $conexao->executar($sql);
     }
 }

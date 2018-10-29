@@ -28,6 +28,10 @@ switch ($_GET['acao']) {
 
         die;
         break;
+
+    case 'logar':
+        $usuario->logar($_POST);
+        break;
 }
 header('location: ../cadastro/index.php#usuario');
 
