@@ -2,9 +2,9 @@
 
 Falta terminar:
 
-Colocar o Ajax;
+Colocar o Ajax foi feito;
 
-Colocar o Upload;
+Colocar o Upload foi feito;
 
 Controle de Acesso;
 
