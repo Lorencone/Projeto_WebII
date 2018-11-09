@@ -29,7 +29,7 @@ include_once("../cabecalho.php");
         <h1>Filme</h1>
         <br/>
 
-        <form method="post" action="processamento.php?acao=salvar" class="form-horizontal">
+        <form method="post" action="processamento.php?acao=salvar" class="form-horizontal" enctype="multipart/form-data">
             <input type="hidden" name="id_filme" value="<?= $filme->getIdFilme(); ?>">
             <div class="form-group">
                 <label for="nome" class="col-sm-2 control-label">Nome</label>
