@@ -1,3 +1,15 @@
+<?php
+session_start();
+include_once '../usuario/Usuario.php';
+
+$possuiAcesso = (new Usuario())->possuiAcesso();
+
+if (!$possuiAcesso) {
+    header('location: ../usuario/login.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -16,10 +28,17 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-mask-plugin@1.14.15/dist/jquery.mask.min.js"></script>
     <script type="text/javascript" src="https://unpkg.com/sweetalert2@7.22.2/dist/sweetalert2.all.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.6/chosen.jquery.min.js"></script>
-
-    <?php include_once('../css/navbar.php') ?>
+     <script src="js/jquery-3.3.1.js"></script>
+    <script src="js/jquery.mask.js"></script>
+    <script src="js/sweetalert2.all.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+    </script>
+<!--    --><?php include_once('../css/navbar.php') ?>
 
 </head>
+<?php if (!empty($_SESSION['usuario'])) { ?>
 <body>
 <!-- Menu Superior -->
 <nav class="navbar navbar-inverse navbar-static-top">
@@ -38,6 +57,12 @@
                 <li><a href="../index.php">Home</a></li>
                 <li><a href="../cadastro/index.php">Cadastro</a></li>
                 <li><a href="../categorias/index.php">Categorias</a></li>
+                <li><a href="../usuario/index.php">Usuarios</a></li>
+                <li style="color:rgba(242,248,255,0.86); padding-top: 1.1em;" class="user-name"><?= $_SESSION['usuario']['nome']; ?></li>
+                <li>
+                    <a href="../usuario/logof.php"><i class="glyphicon glyphicon-log-out"></i></a>
+                    <!--                    <a style="color: #f9fffa" title="Sair" href="../usuario/processamento.php?acao=deslogar" class="fa fa-sign-out"></a>-->
+                </li>
             </ul>
             <form class="navbar-form navbar-right">
                 <input type="text" class="form-control" placeholder="Search...">
@@ -45,3 +70,5 @@
         </div>
     </div>
 </nav>
+
+<?php } ?>

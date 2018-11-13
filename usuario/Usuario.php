@@ -5,9 +5,9 @@ class Usuario{
 
     protected $id_usuario;
     protected $nome;
+    protected $senha;
     protected $sexo;
     protected $email;
-    protected $senha;
     protected $id_perfil;
     
     public function getIdUsuario()
@@ -72,25 +72,32 @@ class Usuario{
 
     public function recuperarDados()
     {
-
         $conexao = new Conexao();
-        $sql = "select * from usuario ";
-        return $conexao->recuperar($sql);
+
+        $sql = "SELECT * FROM usuario order by id_usuario";
+        return $conexao->recuperarDados($sql);
     }
 
     public function carregarPorId($id_usuario)
     {
+
         $conexao = new Conexao();
 
-        $sql = "select * from usuario WHERE id_usuario = '$id_usuario'";
-        $dados = $conexao->recuperar($sql);
+
+        $sql = "SELECT * FROM usuario WHERE id_usuario = '$id_usuario'";
+
+        $dados = $conexao->recuperarDados($sql);
 
         $this->id_usuario = $dados[0]['id_usuario'];
         $this->nome = $dados[0]['nome'];
         $this->sexo = $dados[0]['sexo'];
         $this->email = $dados[0]['email'];
-        $this->senha = $dados[0]['senha'];
         $this->id_perfil = $dados[0]['id_perfil'];
+
+//        print_r($sql);
+//        die;
+
+        return $conexao->executar($sql);
     }
 
     public function inserir($dados)
@@ -98,15 +105,16 @@ class Usuario{
         $nome = $dados['nome'];
         $sexo = $dados['sexo'];
         $email = $dados['email'];
-        $senha = $dados['senha'];
+        $senha = md5($dados['senha']);
         $id_perfil = $dados['id_perfil'];
 
         $conexao = new Conexao();
-        $sql = "insert into usuario (nome, sexo, email, senha, id_perfil) 
-                values ('$nome', '$sexo','$email', '".md5($senha)."', '$id_perfil')";
 
-        print_r($sql);
-        die;
+        $sql = "INSERT INTO usuario (nome, sexo, email, senha, id_perfil) VALUES ('$nome','$sexo','$email','$senha','$id_perfil')";
+
+//        print_r($sql);
+//        die;
+
         return $conexao->executar($sql);
     }
 
@@ -114,45 +122,42 @@ class Usuario{
     {
         $id_usuario = $dados['id_usuario'];
         $nome = $dados['nome'];
+
         $sexo = $dados['sexo'];
         $email = $dados['email'];
         $senha = $dados['senha'];
-        $id_perfil = $dados['id_pais'];
+        $id_perfil = $dados['id_perfil'];
 
         $conexao = new Conexao();
 
-        $sql = "update usuario set 
-                nome = '$nome' , 
-                sexo = '$sexo', 
-                email = '$email', 
-                senha = '".md5($senha)."', 
-                id_perfil = '$id_perfil'
-
+        $sql = "UPDATE usuario SET
+                  id_usuario = '$id_usuario',
+                  nome = '$nome',
+                  sexo = '$sexo',
+                  email = '$email',
+                  senha = '".md5($senha)."',
+                  id_perfil = '$id_perfil'
                 WHERE id_usuario = '$id_usuario'";
-        print_r($sql);
-        die;
+//        print_r($sql);
+//        die;
+
         return $conexao->executar($sql);
     }
 
-    public function deletar($id_usuario)
+    public function excluir($id_usuario)
     {
-
         $conexao = new Conexao();
+
         $sql = "DELETE FROM usuario WHERE id_usuario = '$id_usuario'";
+
         print_r($sql);
+        echo "<br>";
         die;
+
         return $conexao->executar($sql);
     }
 
-    public function existeNome($nome)
-    {
-        $conexao = new Conexao();
 
-        $sql = "SELECT COUNT(nome) qtd FROM usuario WHERE nome = '$nome'";
-        $dados = $conexao->recuperarDados($sql);
-
-        return $dados[0]['qtd'];
-    }
 
     public function logar($dados)
     {
@@ -162,23 +167,78 @@ class Usuario{
 
         $conexao = new Conexao();
 
-
-        $sql = "select * from usuario where email = '$email' and senha = '$senha'";
-
-
+        $sql = "SELECT * FROM usuario WHERE email = '$email' and senha = '$senha'";
         $dados = $conexao->recuperarDados($sql);
 
-//        print_r($sql);
-//        echo "<br>";
-//        print_r($dados);
 
         if (count($dados)){
-            $nome = $dados[0]['nome'];
-            print_r($nome);
+
+            $_SESSION['usuario']['id_usuario'] = $dados[0]['id_usuario'];
+            $_SESSION['usuario']['nome'] = $dados[0]['nome'];
+            $_SESSION['usuario']['email'] = $dados[0]['email'];
+            $_SESSION['usuario']['sexo'] = $dados[0]['sexo'];
+            $_SESSION['usuario']['id_perfil'] = $dados[0]['id_perfil'];
+
         }
-        die;
 
 
         return $conexao->executar($sql);
     }
+
+    public function possuiAcesso()
+    {
+        $raizUrl = '/php/Projeto_WebII/';
+        $url = $_SERVER['REQUEST_URI'];
+        $url2 = explode('?',$url);
+
+        $sql = "SELECT * FROM pagina WHERE publica = 1";
+
+//        print_r($url);
+//        echo "<br>";
+//        die;
+
+        $conexao = new Conexao();
+        $paginas = $conexao->recuperarDados($sql);
+
+        // Se a página for cadastrada como pública, libera o acesso
+        foreach ($paginas as $pagina){
+            if ($url2[0] == $raizUrl . $pagina['caminho']){
+
+                  return true;
+//                print_r($pagina);
+//                echo "<br>";
+//                die;
+            }
+        }
+
+        // Caso a página não seja pública, verifica se o usuário está logado
+        // para então verificar se ele tem acesso à página
+        if (!empty($_SESSION['usuario']['id_usuario'])){
+            $perfil = $_SESSION['usuario']['id_perfil'];
+            $sql = "SELECT * FROM permissao pe
+                      INNER JOIN pagina pa on pa.id_pagina = pe.id_pagina
+                    WHERE id_perfil = $perfil";
+            $paginas = $conexao->recuperarDados($sql);
+
+            foreach ($paginas as $pagina){
+                if ($url2[0] == $raizUrl . $pagina['caminho']){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
+    public function existeEmail($email)
+    {
+        $conexao = new Conexao();
+
+        $sql = "SELECT COUNT(email) qtd FROM usuario WHERE email = '$email'";
+
+        $dados =  $conexao->recuperarDados($sql);
+
+        return (boolean) $dados[0]['qtd'];
+    }
 }
+?>

@@ -100,7 +100,6 @@ class Genero
             $destino = '../upload/genero/' . $_FILES['foto']['name'];
 
             move_uploaded_file($origem, $destino);
-            //TesteS
         }
     }
 

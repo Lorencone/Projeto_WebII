@@ -11,3 +11,4 @@ include_once ('../genero/Genero.php');
 include_once ('../perfil/Perfil.php');
 include_once ('../pagina/Pagina.php');
 include_once ('../usuario/Usuario.php');
+include_once ('../cabecalho.php');

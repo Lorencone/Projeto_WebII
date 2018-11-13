@@ -23,10 +23,13 @@ class Conexao
         return $lastId;
     }
 
-    public function recuperar($sql)
+    public function recuperarDados($sql)
     {
         $this->conectar();
+
         $retorno = $this->conexao->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+
+        $this->desconectar();
         return $retorno;
     }
 }

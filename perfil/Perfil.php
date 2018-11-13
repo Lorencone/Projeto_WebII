@@ -7,6 +7,10 @@ class Perfil
     protected $id_perfil;
     protected $nome;
 
+    const PERFIL_ADMINISTRADOR = 1;
+    const PERFIL_USUARIO = 2;
+
+
     public function getIdPerfil()
     {
         return $this->id_perfil;
@@ -31,9 +35,10 @@ class Perfil
     {
         $conexao = new Conexao();
 
-        $sql = "select * from perfil order by nome";
+        $sql = "select * from perfil order by id_perfil";
         return $conexao->recuperarDados($sql);
     }
+
 
     public function carregarPorId($id_perfil)
     {
