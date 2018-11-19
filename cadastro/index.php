@@ -12,9 +12,9 @@ include_once ('../cabecalho.php');
         <li><a href="#legenda" data-toggle="tab">Legenda</a></li>
         <li><a href="#equipe" data-toggle="tab">Equipe</a></li>
         <li><a href="#trabalho" data-toggle="tab">Área de Trabalho</a></li>
-        <li><a href="#trabalho" data-toggle="tab">Usuário</a></li>
-        <li><a href="#trabalho" data-toggle="tab">Perfil</a></li>
-        <li><a href="#trabalho" data-toggle="tab">Página</a></li>
+        <li><a href="#usuario" data-toggle="tab">Usuário</a></li>
+        <li><a href="#perfil" data-toggle="tab">Perfil</a></li>
+        <li><a href="#pagina" data-toggle="tab">Página</a></li>
     </ul>
 </div>
 

@@ -16,7 +16,6 @@ $ausuarios = $usuarios->recuperarDados();
                 <th>ID</th>
                 <th>Nome</th>
                 <th>Email</th>
-                <th>Sexo</th>
                 <th>Perfil</th>
             </tr>
             </thead>
@@ -32,7 +31,6 @@ $ausuarios = $usuarios->recuperarDados();
                 <td><?= $usuario['id_usuario']?></td>
                 <td><?= $usuario['nome']?></td>
                 <td><?= $usuario['email']?></td>
-                <td><?= $usuario['sexo']?></td>
                 <td><?= $usuario['id_perfil']?></td>
             </tr>
             <?php

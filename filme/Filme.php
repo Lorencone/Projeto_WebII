@@ -18,11 +18,6 @@ class Filme
     protected $estudio;
     protected $id_classificacao;
     protected $id_pais;
-    protected $id_legenda;
-    protected $id_idioma;
-    protected $id_equipe;
-    protected $id_trabalho;
-    protected $id_genero;
 
     public function getIdFilme()
     {
@@ -174,56 +169,6 @@ class Filme
         $this->id_pais = $id_pais;
     }
 
-    public function getIdLegenda()
-    {
-        return $this->id_legenda;
-    }
-
-    public function setIdLegenda($id_legenda)
-    {
-        $this->id_legenda = $id_legenda;
-    }
-
-    public function getIdIdioma()
-    {
-        return $this->id_idioma;
-    }
-
-    public function setIdIdioma($id_idioma)
-    {
-        $this->id_idioma = $id_idioma;
-    }
-
-    public function getIdEquipe()
-    {
-        return $this->id_equipe;
-    }
-
-    public function setIdEquipe($id_equipe)
-    {
-        $this->id_equipe = $id_equipe;
-    }
-
-    public function getIdTrabalho()
-    {
-        return $this->id_trabalho;
-    }
-
-    public function setIdTrabalho($id_trabalho)
-    {
-        $this->id_trabalho = $id_trabalho;
-    }
-
-    public function getIdGenero()
-    {
-        return $this->id_genero;
-    }
-
-    public function setIdGenero($id_genero)
-    {
-        $this->id_genero = $id_genero;
-    }
-
     //Para fazer a interação com o Banco de Dados
 
     public function recuperarDados()
@@ -264,11 +209,6 @@ class Filme
         $this->estudio = $dados[0]['estudio'];
         $this->id_classificacao = $dados[0]['id_classificacao'];
         $this->id_pais = $dados[0]['id_pais'];
-        $this->id_legenda = $dados[0]['id_legenda'];
-        $this->id_idioma = $dados[0]['id_idioma'];
-        $this->id_equipe = $dados[0]['id_equipe'];
-        $this->id_trabalho = $dados[0]['id_trabalho'];
-        $this->id_genero = $dados[0]['id_genero'];
 
     }
 
@@ -288,24 +228,123 @@ class Filme
         $estudio = $dados['estudio'];
         $id_classificacao = $dados['id_classificacao'];
         $id_pais = $dados['id_pais'];
-        $id_legenda = $dados['id_legenda'];
-        $id_idioma = $dados['id_idioma'];
-        $id_equipe = $dados['id_equipe'];
-        $id_trabalho = $dados['id_trabalho'];
-        $id_genero = $dados['id_genero'];
 
         $conexao = new Conexao();
         $sql = "insert into filme (nome, estreia, bilheteria, duracao, sinopse, critica, 
                                   trailer, assistir, indicacao, gasto, imagem, estudio, 
-                                  id_classificacao, id_pais, id_legenda, id_idioma, id_equipe, id_trabalho, id_genero) 
+                                  id_classificacao, id_pais) 
                             values ('$nome', '$estreia', '$bilheteria', '$duracao', '$sinopse', '$critica',
                              '$trailer', '$assistir', '$indicacao', '$gasto', '$imagem', '$estudio', 
-                             '$id_classificacao', '$id_pais', '$id_legenda', '$id_idioma', '$id_equipe', 
-                             '$id_trabalho', '$id_genero')";
+                             '$id_classificacao', '$id_pais')";
         print_r($sql);
         die;
-        return $conexao->executar($sql);
+
+        $id_filme = $conexao->executar($sql);
+
+        $this->vincularEquipeTrabalho($id_filme, $dados);
+        $this->vincularGenero($id_filme, $dados);
+        $this->vincularIdioma($id_filme, $dados);
+        $this->vincularLegenda($id_filme, $dados);
+
+        return $id_filme;
     }
+
+    public function vincularEquipeTrabalho($id_filme, $dados)
+    {
+        include_once '../filme_equipe_trabalho/Filme_Equipe_Trabalho.php';
+
+        $fet = new Filme_Equipe_Trabalho();
+
+        if(isset($dados['id_equipe'])){
+
+            foreach ($dados['id_equipe'] as $equipe) {
+                foreach ($dados['id_trabalho'] as $trabalho) {
+
+                    $aDados = [
+                        'id_filme' => $id_filme,
+                        'id_equipe' => $equipe,
+                        'id_trabalho' => $trabalho
+                    ];
+
+                    print_r($aDados);
+                    die;
+                    $fet->inserir($aDados);
+                }
+            }
+        }
+
+    }
+
+    public function vincularGenero($id_filme, $dados)
+    {
+        include_once '../filme_genero/Filme_Genero.php';
+
+        $fg = new Filme_Genero();
+
+        if(isset($dados['id_genero'])){
+
+            foreach ($dados['id_genero'] as $genero) {
+
+                $aDados = [
+                    'id_filme' => $id_filme,
+                    'id_genero' => $genero,
+                ];
+
+                print_r($aDados);
+                die;
+
+                $fg->inserir($aDados);
+            }
+        }
+
+    }
+
+    public function vincularIdioma($id_filme, $dados)
+    {
+        include_once '../filme_idioma/Filme_Idioma.php';
+
+        $fi = new Filme_Idioma();
+
+        if(isset($dados['id_idioma'])){
+
+            foreach ($dados['id_idioma'] as $idioma) {
+
+                $aDados = [
+                    'id_filme' => $id_filme,
+                    'id_idioma' => $idioma,
+                ];
+
+                print_r($aDados);
+                die;
+                $fi->inserir($aDados);
+            }
+        }
+
+    }
+
+    public function vincularLegenda($id_filme, $dados)
+    {
+        include_once '../filme_legenda/Filme_Legenda.php';
+
+        $fl = new Filme_Legenda();
+
+        if(isset($dados['id_legenda'])){
+
+            foreach ($dados['id_legenda'] as $legenda) {
+
+                $aDados = [
+                    'id_filme' => $id_filme,
+                    'id_legenda' => $legenda,
+                ];
+
+                print_r($aDados);
+                die;
+                $fl->inserir($aDados);
+            }
+        }
+
+    }
+    
 
     public function alterar($dados)
     {
@@ -324,11 +363,6 @@ class Filme
         $estudio = $dados['estudio'];
         $id_classificacao = $dados['id_classificacao'];
         $id_pais = $dados['id_pais'];
-        $id_legenda = $dados['id_legenda'];
-        $id_idioma = $dados['id_idioma'];
-        $id_equipe = $dados['id_equipe'];
-        $id_trabalho = $dados['id_trabalho'];
-        $id_genero = $dados['id_genero'];
 
         $conexao = new Conexao();
         $sql = "update filme set
@@ -346,11 +380,6 @@ class Filme
                         estudio = '$estudio', 
                         id_classificacao = '$id_classificacao', 
                         id_pais = '$id_pais', 
-                        id_legenda = '$id_legenda', 
-                        id_idioma = '$id_idioma', 
-                        id_equipe = '$id_equipe', 
-                        id_trabalho = '$id_trabalho', 
-                        id_genero = '$id_genero' 
                       
                     WHERE id_filme = $id_filme";
 

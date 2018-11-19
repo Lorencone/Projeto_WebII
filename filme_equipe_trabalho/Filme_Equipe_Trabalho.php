@@ -1,21 +1,23 @@
 <?php
 include_once '../conexao/Conexao.php';
 
-class Filme_Legenda
+class Filme_Equipe_Trabalho
 {
     protected $id_filme;
-    protected $id_legenda;
+    protected $id_equipe;
+    protected $id_trabalho;
 
 
     public function inserir($dados)
     {
         $id_filme = $dados['id_filme'];
-        $id_legenda = $dados['id_legenda'];
+        $id_equipe = $dados['id_equipe'];
+        $id_trabalho = $dados['id_trabalho'];
 
         $conexao = new Conexao();
 
-        $sql = "insert into filme_legenda (id_filme, id_legenda) 
-                               values ('$id_filme', '$id_legenda')";
+        $sql = "insert into filme_equipe_trabalho (id_filme, id_equipe, id_trabalho) 
+                               values ('$id_filme', '$id_equipe', '$id_trabalho')";
 //        print_r($sql); die;
         return $conexao->executar($sql);
     }

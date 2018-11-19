@@ -94,7 +94,35 @@ class Equipe
                 values ('$nome', '$sexo','$data_nascimento', '$id_pais')";
         print_r($sql);
         die;
-        return $conexao->executar($sql);
+
+        $id_equipe = $conexao->executar($sql);
+
+        $this->vincularTrabalho($id_equipe, $dados);
+
+        return $id_equipe;
+    }
+
+    public function vincularTrabalho($id_equipe, $dados)
+    {
+        include_once '../trabalho/Trabalho.php';
+
+        $trabalho = new Trabalho();
+
+        if(isset($dados['id_trabalho'])){
+
+            foreach ($dados['id_trabalho'] as $trabalho) {
+
+                $aDados = [
+                    'id_equipe' => $id_equipe,
+                    'id_trabalho' => $trabalho,
+                ];
+
+                print_r($aDados);
+                die;
+                $permissao->inserir($aDados);
+            }
+        }
+
     }
 
     public function alterar($dados)

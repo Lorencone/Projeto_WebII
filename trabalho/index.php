@@ -28,7 +28,7 @@ $atrabalhos = $trabalhos->recuperarDados();
                     </td>
                     <td><?= $trabalho['id_trabalho']?></td>
                     <td><?= $trabalho['nome']?></td>
-                </tr>"
+                </tr>
                 <?php
             }
             ?>
