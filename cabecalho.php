@@ -58,7 +58,7 @@
                 <li><a href="../cadastro/index.php">Cadastro</a></li>
                 <li><a href="../categoria/index.php">Categorias</a></li>
                 <li><a href="../usuario/index.php">Usuarios</a></li>
-                <li style="color:rgba(242,248,255,0.86); padding-top: 1.1em;" class="user-name">//</li>
+<!--                <li style="color:rgba(242,248,255,0.86); padding-top: 1.1em;" class="user-name">--><?//= $_SESSION['usuario']['nome']; ?><!--</li>-->
                 <li>
                     <a href="../usuario/logof.php"><i class="glyphicon glyphicon-log-out"></i></a>
                     <!--                    <a style="color: #f9fffa" title="Sair" href="../usuario/processamento.php?acao=deslogar" class="fa fa-sign-out"></a>-->
