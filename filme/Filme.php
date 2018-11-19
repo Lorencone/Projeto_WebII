@@ -269,8 +269,8 @@ class Filme
                         'id_trabalho' => $trabalho
                     ];
 
-                    print_r($aDados);
-                    die;
+//                    print_r($aDados);
+//                    die;
                     $fet->inserir($aDados);
                 }
             }
@@ -293,8 +293,8 @@ class Filme
                     'id_genero' => $genero,
                 ];
 
-                print_r($aDados);
-                die;
+//                print_r($aDados);
+//                die;
 
                 $fg->inserir($aDados);
             }
@@ -317,8 +317,8 @@ class Filme
                     'id_idioma' => $idioma,
                 ];
 
-                print_r($aDados);
-                die;
+//                print_r($aDados);
+//                die;
                 $fi->inserir($aDados);
             }
         }
@@ -340,8 +340,8 @@ class Filme
                     'id_legenda' => $legenda,
                 ];
 
-                print_r($aDados);
-                die;
+//                print_r($aDados);
+//                die;
                 $fl->inserir($aDados);
             }
         }
@@ -389,8 +389,8 @@ class Filme
                       
                     WHERE id_filme = $id_filme";
 
-        print_r($sql);
-        die;
+//        print_r($sql);
+//        die;
         return $conexao->executar($sql);
     }
 
