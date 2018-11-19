@@ -42,7 +42,7 @@ class Classificacao
 
         $conexao = new Conexao();
         $sql = "select * from classificacao ";
-        return $conexao->recuperar($sql);
+        return $conexao->recuperarDados($sql);
     }
 
     public function carregarPorId($id_classificacao)
@@ -50,7 +50,7 @@ class Classificacao
         $conexao = new Conexao();
 
         $sql = "select * from classificacao WHERE id_classificacao = '$id_classificacao'";
-        $dados = $conexao->recuperar($sql);
+        $dados = $conexao->recuperarDados($sql);
 
         $this->id_classificacao = $dados[0]['id_classificacao'];
         $this->nome = $dados[0]['nome'];

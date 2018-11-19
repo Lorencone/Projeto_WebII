@@ -31,7 +31,7 @@ class Legenda
 
         $conexao = new Conexao();
         $sql = "select * from legenda ";
-        return $conexao->recuperar($sql);
+        return $conexao->recuperarDados($sql);
     }
 
     public function carregarPorId($id_legenda)
@@ -39,7 +39,7 @@ class Legenda
         $conexao = new Conexao();
 
         $sql = "select * from legenda WHERE id_legenda = '$id_legenda'";
-        $dados = $conexao->recuperar($sql);
+        $dados = $conexao->recuperarDados($sql);
 
         $this->id_legenda = $dados[0]['id_legenda'];
         $this->nome = $dados[0]['nome'];

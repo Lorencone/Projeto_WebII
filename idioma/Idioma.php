@@ -31,7 +31,7 @@ class Idioma
 
         $conexao = new Conexao();
         $sql = "select * from idioma ";
-        return $conexao->recuperar($sql);
+        return $conexao->recuperarDados($sql);
     }
 
     public function carregarPorId($id_idioma)
@@ -39,7 +39,7 @@ class Idioma
         $conexao = new Conexao();
 
         $sql = "select * from idioma WHERE id_idioma = '$id_idioma'";
-        $dados = $conexao->recuperar($sql);
+        $dados = $conexao->recuperarDados($sql);
 
         $this->id_idioma = $dados[0]['id_idioma'];
         $this->nome = $dados[0]['nome'];

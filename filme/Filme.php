@@ -231,7 +231,7 @@ class Filme
         $conexao = new Conexao();
 
         $sql = "select * from filme ";
-        return $conexao->recuperar($sql);
+        return $conexao->recuperarDados($sql);
     }
 
     public function carregarPorGenero($id_genero)
@@ -239,7 +239,7 @@ class Filme
         $conexao = new Conexao();
 
         $sql = "select * from filme WHERE id_genero = '$id_genero'";
-        return $conexao->recuperar($sql);
+        return $conexao->recuperarDados($sql);
 
     }
 
@@ -248,7 +248,7 @@ class Filme
         $conexao = new Conexao();
 
         $sql = "select * from filme WHERE id_filme = '$id_filme'";
-        $dados = $conexao->recuperar($sql);
+        $dados = $conexao->recuperarDados($sql);
 
         $this->nome = $dados[0]['nome'];
         $this->estreia = $dados[0]['estreia'];

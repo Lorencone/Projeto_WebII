@@ -1,13 +1,13 @@
 <?php
-session_start();
-include_once '../usuario/Usuario.php';
-
-$possuiAcesso = (new Usuario())->possuiAcesso();
-
-if (!$possuiAcesso) {
-    header('location: ../usuario/login.php');
-}
-
+//session_start();
+//include_once '../usuario/Usuario.php';
+//
+//$possuiAcesso = (new Usuario())->possuiAcesso();
+//
+//if (!$possuiAcesso) {
+//    header('location: ../usuario/login.php');
+//}
+//
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +38,7 @@ if (!$possuiAcesso) {
 <!--    --><?php include_once('../css/navbar.php') ?>
 
 </head>
-<?php if (!empty($_SESSION['usuario'])) { ?>
+<?php //if (!empty($_SESSION['usuario'])) { ?>
 <body>
 <!-- Menu Superior -->
 <nav class="navbar navbar-inverse navbar-static-top">
@@ -58,7 +58,7 @@ if (!$possuiAcesso) {
                 <li><a href="../cadastro/index.php">Cadastro</a></li>
                 <li><a href="../categorias/index.php">Categorias</a></li>
                 <li><a href="../usuario/index.php">Usuarios</a></li>
-                <li style="color:rgba(242,248,255,0.86); padding-top: 1.1em;" class="user-name"><?= $_SESSION['usuario']['nome']; ?></li>
+                <li style="color:rgba(242,248,255,0.86); padding-top: 1.1em;" class="user-name">//</li>
                 <li>
                     <a href="../usuario/logof.php"><i class="glyphicon glyphicon-log-out"></i></a>
                     <!--                    <a style="color: #f9fffa" title="Sair" href="../usuario/processamento.php?acao=deslogar" class="fa fa-sign-out"></a>-->
@@ -71,4 +71,4 @@ if (!$possuiAcesso) {
     </div>
 </nav>
 
-<?php } ?>
+<?php //} ?>

@@ -64,7 +64,7 @@ class Equipe
 
         $conexao = new Conexao();
         $sql = "select * from equipe ";
-        return $conexao->recuperar($sql);
+        return $conexao->recuperarDados($sql);
     }
 
     public function carregarPorId($id_equipe)
@@ -72,7 +72,7 @@ class Equipe
         $conexao = new Conexao();
 
         $sql = "select * from equipe WHERE id_equipe = '$id_equipe'";
-        $dados = $conexao->recuperar($sql);
+        $dados = $conexao->recuperarDados($sql);
 
         $this->id_equipe = $dados[0]['id_equipe'];
         $this->nome = $dados[0]['nome'];

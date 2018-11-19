@@ -42,7 +42,7 @@ class Genero
 
         $conexao = new Conexao();
         $sql = "select * from genero ";
-        return $conexao->recuperar($sql);
+        return $conexao->recuperarDados($sql);
     }
 
     public function carregarPorId($id_genero)
@@ -50,7 +50,7 @@ class Genero
         $conexao = new Conexao();
 
         $sql = "select * from genero WHERE id_genero = '$id_genero'";
-        $dados = $conexao->recuperar($sql);
+        $dados = $conexao->recuperarDados($sql);
 
         $this->id_genero = $dados[0]['id_genero'];
         $this->nome = $dados[0]['nome'];

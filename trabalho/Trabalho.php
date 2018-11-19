@@ -30,7 +30,7 @@ class Trabalho
     {
         $conexao = new Conexao();
         $sql = "select * from trabalho";
-        return $conexao->recuperar($sql);
+        return $conexao->recuperarDados($sql);
     }
 
     public function carregarPorId($id_trabalho)
@@ -38,7 +38,7 @@ class Trabalho
         $conexao = new Conexao();
 
         $sql = "select * from trabalho WHERE id_trabalho = '$id_trabalho'";
-        $dados = $conexao->recuperar($sql);
+        $dados = $conexao->recuperarDados($sql);
 
         $this->id_trabalho = $dados[0]['id_trabalho'];
         $this->nome = $dados[0]['nome'];

@@ -29,7 +29,7 @@ class Pais
     {
         $conexao = new Conexao();
         $sql = "select * from  pais";
-        return $conexao->recuperar($sql);
+        return $conexao->recuperarDados($sql);
     }
 
     public function carregarPorId($id_pais)
@@ -37,7 +37,7 @@ class Pais
         $conexao = new Conexao();
 
         $sql = "select * from pais WHERE id_pais = '$id_pais'";
-        $dados = $conexao->recuperar($sql);
+        $dados = $conexao->recuperarDados($sql);
 
         $this->id_pais = $dados[0]['id_pais'];
         $this->nome = $dados[0]['nome'];
