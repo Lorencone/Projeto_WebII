@@ -45,9 +45,9 @@ include_once("../cabecalho.php");
                 </div>
             </div>
             <div class="form-group">
-                <label for="producao" class="col-sm-2 control-label">Produtora</label>
+                <label for="estudio" class="col-sm-2 control-label">Estúdio</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="producao" name="producao" value="<?= $filme->getProducao(); ?>">
+                    <input type="text" class="form-control" id="estudio" name="estudio" value="<?= $filme->getEstudio(); ?>">
                 </div>
             </div>
             <div class="form-group">
@@ -104,12 +104,12 @@ include_once("../cabecalho.php");
             <div class="form-group">
                 <label for="id_idioma" class="col-sm-2 control-label">Idioma</label>
                 <div class="col-sm-10">
-                    <select class="form-control chosen" multiple id="id_idioma[]" name="id_idioma">
+                    <select class="form-control chosen" multiple id="id_idioma" name="id_idioma[]">
                         <option>Selecione</option>
                         <?php
                         foreach ($id_idiomas as $id_idioma) {
                             ?>
-                            <option required value="<?= $id_idioma['id_idioma'];?>" <?= ($filme->getIdIdioma() == $id_idioma['id_idioma'])? "selected" : '';?> >
+                            <option required value="<?= $id_idioma['id_idioma'];?>">
                                 <?= $id_idioma['nome']; ?>
                             </option>
                         <?php }?>
@@ -119,12 +119,12 @@ include_once("../cabecalho.php");
             <div class="form-group">
                 <label for="id_legenda" class="col-sm-2 control-label">Legenda</label>
                 <div class="col-sm-10">
-                    <select class="form-control chosen" multiple id="id_legenda[]" name="id_legenda">
+                    <select class="form-control chosen" multiple id="id_legenda" name="id_legenda[]">
                         <option>Selecione</option>
                         <?php
                         foreach ($id_legendas as $id_legenda) {
                             ?>
-                            <option required value="<?= $id_legenda['id_legenda'];?>" <?= ($filme->getIdLegenda() == $id_legenda['id_legenda'])? "selected" : '';?> >
+                            <option required value="<?= $id_legenda['id_legenda'];?>">
                                 <?= $id_legenda['nome']; ?>
                             </option>
                         <?php }?>
@@ -134,12 +134,12 @@ include_once("../cabecalho.php");
             <div class="form-group">
                 <label for="id_genero" class="col-sm-2 control-label">Gênero</label>
                 <div class="col-sm-10">
-                    <select class="form-control chosen" multiple id="id_genero []" name="id_genero">
+                    <select class="form-control chosen" multiple id="id_genero" name="id_genero[]">
                         <option>Selecione</option>
                         <?php
                         foreach ($id_generos as $id_genero) {
                             ?>
-                            <option required value="<?= $id_genero['id_genero'];?>" <?= ($filme->getIdGenero() == $id_genero['id_genero'])? "selected" : '';?> >
+                            <option required value="<?= $id_genero['id_genero'];?>">
                                 <?= $id_genero['nome']; ?>
                             </option>
                         <?php }?>
@@ -154,7 +154,7 @@ include_once("../cabecalho.php");
                         <?php
                         foreach ($id_paises as $id_pais) {
                             ?>
-                            <option required value="<?= $id_pais['id_pais'];?>" <?= ($filme->getIdPais() == $id_pais['id_pais'])? "selected" : '';?> >
+                            <option required value="<?= $id_pais['id_pais'];?>">
                                 <?= $id_pais['nome']; ?>
                             </option>
                         <?php }?>
@@ -164,12 +164,12 @@ include_once("../cabecalho.php");
             <div class="form-group">
                 <label for="id_equipe" class="col-sm-2 control-label">Equipe</label>
                 <div class="col-sm-10">
-                    <select class="form-control chosen" multiple id="id_equipe[]" name="id_equipe">
+                    <select class="form-control chosen" multiple id="id_equipe" name="id_equipe[]">
                         <option>Selecione</option>
                         <?php
                         foreach ($id_equipes as $id_equipe) {
                             ?>
-                            <option required value="<?= $id_equipe['id_equipe'];?>" <?= ($filme->getIdEquipe() == $id_equipe['id_equipe'])? "selected" : '';?> >
+                            <option required value="<?= $id_equipe['id_equipe'];?>">
                                 <?= $id_equipe['nome']; ?>
                             </option>
                         <?php }?>

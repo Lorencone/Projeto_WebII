@@ -1143,61 +1143,56 @@ id_trabalho</ColNames>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="284" parent="248" name="bilheteria">
+    <column id="284" parent="248" name="estudio">
       <Position>4</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="285" parent="248" name="duracao">
+    <column id="285" parent="248" name="bilheteria">
       <Position>5</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="286" parent="248" name="duracao">
+      <Position>6</Position>
       <DataType>time|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="248" name="sinopse">
-      <Position>6</Position>
-      <DataType>text|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="287" parent="248" name="critica">
+    <column id="287" parent="248" name="sinopse">
       <Position>7</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="248" name="trailer">
+    <column id="288" parent="248" name="critica">
       <Position>8</Position>
-      <DataType>varchar(200)|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="289" parent="248" name="assistir">
+    <column id="289" parent="248" name="trailer">
       <Position>9</Position>
       <DataType>varchar(200)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="248" name="indicacao">
+    <column id="290" parent="248" name="assistir">
       <Position>10</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>varchar(200)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="248" name="gasto">
+    <column id="291" parent="248" name="indicacao">
       <Position>11</Position>
       <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="248" name="imagem">
+    <column id="292" parent="248" name="gasto">
       <Position>12</Position>
-      <DataType>varchar(50)|0s</DataType>
-      <NotNull>1</NotNull>
+      <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="248" name="estudio">
+    <column id="293" parent="248" name="imagem">
       <Position>13</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>

@@ -216,6 +216,7 @@ class Filme
     {
         $nome = $dados['nome'];
         $estreia = $dados['estreia'];
+        $estudio = $dados['estudio'];
         $bilheteria = $dados['bilheteria'];
         $duracao = $dados['duracao'];
         $sinopse = $dados['sinopse'];
@@ -225,7 +226,6 @@ class Filme
         $indicacao = $dados['indicacao'];
         $gasto = $dados['gasto'];
         $imagem = $_FILES['imagem']['name'];
-        $estudio = $dados['estudio'];
         $id_classificacao = $dados['id_classificacao'];
         $id_pais = $dados['id_pais'];
 
@@ -233,14 +233,12 @@ class Filme
 
         $this->uploadFoto();
 
-        $sql = "insert into filme (nome, estreia, bilheteria, duracao, sinopse, critica, 
-                                  trailer, assistir, indicacao, gasto, imagem, estudio, 
-                                  id_classificacao, id_pais) 
-                            values ('$nome', '$estreia', '$bilheteria', '$duracao', '$sinopse', '$critica',
-                             '$trailer', '$assistir', '$indicacao', '$gasto', '$imagem', '$estudio', 
-                             '$id_classificacao', '$id_pais')";
-        print_r($sql);
-        die;
+        $sql = "insert into filme (nome, estreia, estudio, bilheteria, duracao, sinopse, critica, 
+                                  trailer, assistir, indicacao, gasto, imagem, id_classificacao, id_pais) 
+                            values ('$nome', '$estreia', '$estudio', '$bilheteria', '$duracao', '$sinopse', '$critica',
+                             '$trailer', '$assistir', '$indicacao', '$gasto', '$imagem', '$id_classificacao', '$id_pais')";
+//        print_r($sql);
+//        die;
 
         $id_filme = $conexao->executar($sql);
 
@@ -354,6 +352,7 @@ class Filme
         $id_filme = $dados['id_filme'];
         $nome = $dados['nome'];
         $estreia = $dados['estreia'];
+        $estudio = $dados['estudio'];
         $bilheteria = $dados['bilheteria'];
         $duracao = $dados['duracao'];
         $sinopse = $dados['sinopse'];
@@ -363,7 +362,6 @@ class Filme
         $indicacao = $dados['indicacao'];
         $gasto = $dados['gasto'];
         $imagem = $_FILES['imagem']['name'];
-        $estudio = $dados['estudio'];
         $id_classificacao = $dados['id_classificacao'];
         $id_pais = $dados['id_pais'];
 
@@ -374,6 +372,7 @@ class Filme
         $sql = "update filme set
                         nome = '$nome', 
                         estreia = '$estreia', 
+                        estudio = '$estudio', 
                         bilheteria = '$bilheteria', 
                         duracao = '$duracao', 
                         sinopse = '$sinopse', 
@@ -383,7 +382,6 @@ class Filme
                         indicacao = '$indicacao', 
                         gasto = '$gasto', 
                         imagem = '$imagem', 
-                        estudio = '$estudio', 
                         id_classificacao = '$id_classificacao', 
                         id_pais = '$id_pais', 
                       
