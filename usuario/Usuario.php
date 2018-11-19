@@ -103,17 +103,16 @@ class Usuario{
     public function inserir($dados)
     {
         $nome = $dados['nome'];
-        $sexo = $dados['sexo'];
         $email = $dados['email'];
-        $senha = md5($dados['senha']);
+        $senha = $dados['senha'];
         $id_perfil = $dados['id_perfil'];
 
         $conexao = new Conexao();
+        $sql = "insert into usuario (nome, email, senha, id_perfil) 
+                values ('$nome','$email', '".md5($senha)."', '$id_perfil')";
 
-        $sql = "INSERT INTO usuario (nome, sexo, email, senha, id_perfil) VALUES ('$nome','$sexo','$email','$senha','$id_perfil')";
-
-//        print_r($sql);
-//        die;
+        //print_r($sql);
+        //die;
 
         return $conexao->executar($sql);
     }
@@ -180,7 +179,6 @@ class Usuario{
             $_SESSION['usuario']['id_perfil'] = $dados[0]['id_perfil'];
 
         }
-
 
         return $conexao->executar($sql);
     }

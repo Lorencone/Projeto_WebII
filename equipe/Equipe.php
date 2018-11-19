@@ -92,8 +92,9 @@ class Equipe
         $conexao = new Conexao();
         $sql = "insert into equipe (nome, sexo, data_nascimento, id_pais) 
                 values ('$nome', '$sexo','$data_nascimento', '$id_pais')";
-        print_r($sql);
-        die;
+
+//        print_r($sql);
+//        die;
 
         $id_equipe = $conexao->executar($sql);
 
@@ -104,9 +105,9 @@ class Equipe
 
     public function vincularTrabalho($id_equipe, $dados)
     {
-        include_once '../trabalho/Trabalho.php';
+        include_once '../equipe_trabalho/Equipe_Trabalho.php';
 
-        $trabalho = new Trabalho();
+        $et = new Equipe_Trabalho();
 
         if(isset($dados['id_trabalho'])){
 
@@ -117,9 +118,9 @@ class Equipe
                     'id_trabalho' => $trabalho,
                 ];
 
-                print_r($aDados);
-                die;
-                $permissao->inserir($aDados);
+//               print_r($aDados);
+//               die;
+                $et->inserir($aDados);
             }
         }
 
@@ -142,8 +143,10 @@ class Equipe
                 id_pais = '$id_pais'
 
                 WHERE id_equipe = '$id_equipe'";
+
         print_r($sql);
         die;
+
         return $conexao->executar($sql);
     }
 
@@ -152,8 +155,8 @@ class Equipe
 
         $conexao = new Conexao();
         $sql = "DELETE FROM equipe WHERE id_equipe = '$id_equipe'";
-        print_r($sql);
-        die;
+//        print_r($sql);
+//        die;
         return $conexao->executar($sql);
     }
 

@@ -24,11 +24,11 @@ $apaiss = $paiss->recuperarDados();
                 <tr>
                     <td>
                         <a href="../pais/formulario.php?&id_pais=<?= $pais['id_pais']?>" class="btn btn-info">Alterar</a>
-                        <a href="../pais/processamento.php?acao=exluir&id_pais=<?= $pais['id_pais']?>" class="btn btn-info">Excluir</a>
+                        <a href="../pais/processamento.php?acao=excluir&id_pais=<?= $pais['id_pais']?>" class="btn btn-danger">Excluir</a>
                     </td>
                     <td><?= $pais['id_pais']?></td>
                     <td><?= $pais['nome']?></td>
-                </tr>"
+                </tr>
                 <?php
             }
             ?>

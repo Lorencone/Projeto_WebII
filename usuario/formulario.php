@@ -12,7 +12,7 @@ include_once("../cabecalho.php");
     <div class="container" style="margin-top: 60px;">
         <h1>Usuario</h1>
         <br/>
-        <form method="post" action="../usuario/processamento.php?acao=salvar" class="form-horizontal">
+        <form method="post" action="processamento.php?acao=salvar" class="form-horizontal">
             <input type="hidden" name="id_usuario" value="<?= $usuario->getIdUsuario(); ?>">
             <div class="form-group">
                 <label for="nome" class="col-sm-2 control-label">Nome</label>
@@ -46,7 +46,7 @@ include_once("../cabecalho.php");
                         $results = $id_perfils->recuperarDados();
                         foreach ($results as $key=>$value){
                             $checked = (($value['id_perfil'] == $usuario->getIdPerfil())?'selected' : '');
-                            echo "<option $checked value='{$value['id_perfil']}'> {$value['id_perfil']} - {$value['nome']}</option>";
+                            echo "<option $checked value='{$value['id_perfil']}'>{$value['nome']}</option>";
                         }
                         ?>
                     </select>
@@ -65,16 +65,12 @@ include_once("../cabecalho.php");
 include_once("../rodape.php");
 ?>
 <script>
-    $(function () {
-        // AJAX para verificação do título
-        $('#email').change(function () {
-            $.ajax({
-                url: 'processamento.php?acao=verificar_email&' + $('#email').serialize(),
-                success: function (dados) {
-                    $('#mensagem').html(dados);
-                }
-            });
-        })
-    });
+    $('#nome').change(function () {
 
+        $.ajax({
+            url: 'processamento.php?acao=verificar_email&' + $('#nome').serialize(),
+            success: function (dados) {
+                $('#mensagemNome').html(dados);
+            }
+        });
 </script>

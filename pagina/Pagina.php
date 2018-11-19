@@ -80,12 +80,16 @@ class Pagina
     {
         $nome = $dados['nome'];
         $caminho = $dados['caminho'];
-        $publica = empty($dados['publica']) ? 0 : 1;
+        $publica = $dados['publica'];
 
         $conexao = new Conexao();
 
         $sql = "insert into pagina (nome, caminho, publica) 
                             values ('$nome', '$caminho', '$publica')";
+
+//        print_r($sql);
+//        print_r($dados);
+//        die;
 
         $id_pagina = $conexao->executar($sql);
 
@@ -138,5 +142,15 @@ class Pagina
 
         $sql = "delete from pagina where id_pagina = '$id_pagina'";
         return $conexao->executar($sql);
+    }
+
+    public function existeNome($nome)
+    {
+        $conexao = new Conexao();
+
+        $sql = "SELECT COUNT(nome) qtd FROM pagina WHERE nome = '$nome'";
+        $dados = $conexao->recuperarDados($sql);
+
+        return $dados[0]['qtd'];
     }
 }

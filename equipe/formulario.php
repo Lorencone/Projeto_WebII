@@ -3,9 +3,9 @@ include_once ('../conexao/conectar.php');
 
 $equipe = new Equipe();
 $paises = new Pais();
-$trabalho = new trabalho();
+$atrabalho = new trabalho();
 $paise = $paises->recuperarDados();
-$trabalhos = $trabalho->recuperarDados();
+$trabalhos = $atrabalho->recuperarDados();
 
 if(!empty($_GET['id_equipe'])){
     $equipe->carregarPorId($_GET['id_equipe']);
@@ -50,6 +50,21 @@ include_once("../cabecalho.php");
                                 <?= $pais['id_pais']; ?>
                                 <?= " - "; ?>
                                 <?= $pais['nome']; ?>
+                            </option>
+                        <?php }?>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="id_trabalho" class="col-sm-2 control-label">Trabalho</label>
+                <div class="col-sm-10">
+                    <select class="form-control chosen-select" multiple id="id_trabalho" name="id_trabalho[]">
+                        <option>Selecione</option>
+                        <?php
+                        foreach ($trabalhos as $trabalho) {
+                            ?>
+                            <option value="<?= $trabalho['id_trabalho'];?>" >
+                                <?= $trabalho['nome']; ?>
                             </option>
                         <?php }?>
                     </select>

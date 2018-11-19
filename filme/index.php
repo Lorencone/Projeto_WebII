@@ -15,7 +15,6 @@ $afilmes = $filmes->recuperarDados();
                 <th>Ações</th>
                 <th>ID</th>
                 <th>Nome</th>
-                <th>Gênero</th>
                 <th>Classificação</th>
             </tr>
             </thead>
@@ -26,13 +25,12 @@ $afilmes = $filmes->recuperarDados();
                 <tr>
                     <td>
                         <a href="../filme/formulario.php?&id_filme=<?= $filme['id_filme']?>" class="btn btn-info">Alterar</a>
-                        <a href="../filme/processamento.php?acao=exluir&id_filme=<?= $filme['id_filme']?>" class="btn btn-info">Excluir</a>
+                        <a href="../filme/processamento.php?acao=excluir&id_filme=<?= $filme['id_filme']?>" class="btn btn-danger">Excluir</a>
                     </td>
                     <td><?= $filme['id_filme']?></td>
                     <td><?= $filme['nome']?></td>
-                    <td><?= $filme['genero']?></td>
                     <td><?= $filme['id_classificacao']?></td>
-                </tr>"
+                </tr>
                 <?php
             }
             ?>

@@ -25,12 +25,12 @@ $aequipes = $equipes->recuperarDados();
                 <tr>
                     <td>
                         <a href="../equipe/formulario.php?&id_equipe=<?= $equipe['id_equipe']?>" class="btn btn-info">Alterar</a>
-                        <a href="../equipe/processamento.php?acao=exluir&id_equipe=<?= $equipe['id_equipe']?>" class="btn btn-info">Excluir</a>
+                        <a href="../equipe/processamento.php?acao=excluir&id_equipe=<?= $equipe['id_equipe']?>" class="btn btn-danger">Excluir</a>
                     </td>
                     <td><?= $equipe['id_equipe']?></td>
                     <td><?= $equipe['nome']?></td>
                     <td><?= $equipe['sexo']?></td>
-                </tr>"
+                </tr>
                 <?php
             }
             ?>

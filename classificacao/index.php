@@ -24,11 +24,11 @@ $aclassificacaos = $classificacaos->recuperarDados();
                 <tr>
                     <td>
                         <a href="../classificacao/formulario.php?&id_classificacao=<?= $classificacao['id_classificacao']?>" class="btn btn-info">Alterar</a>
-                        <a href="../classificacao/processamento.php?acao=exluir&id_classificacao=<?= $classificacao['id_classificacao']?>" class="btn btn-info">Excluir</a>
+                        <a href="../classificacao/processamento.php?acao=excluir&id_classificacao=<?= $classificacao['id_classificacao']?>" class="btn btn-danger">Excluir</a>
                     </td>
                     <td><?= $classificacao['id_classificacao']?></td>
                     <td><?= $classificacao['nome']?></td>
-                </tr>"
+                </tr>
                 <?php
             }
             ?>

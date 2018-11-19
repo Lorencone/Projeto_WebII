@@ -24,7 +24,7 @@ $atrabalhos = $trabalhos->recuperarDados();
                 <tr>
                     <td>
                         <a href="../trabalho/formulario.php?&id_trabalho=<?= $trabalho['id_trabalho']?>" class="btn btn-info">Alterar</a>
-                        <a href="../trabalho/processamento.php?acao=exluir&id_trabalho=<?= $trabalho['id_trabalho']?>" class="btn btn-info">Excluir</a>
+                        <a href="../trabalho/processamento.php?acao=excluir&id_trabalho=<?= $trabalho['id_trabalho']?>" class="btn btn-danger">Excluir</a>
                     </td>
                     <td><?= $trabalho['id_trabalho']?></td>
                     <td><?= $trabalho['nome']?></td>

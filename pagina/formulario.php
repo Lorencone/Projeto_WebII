@@ -43,7 +43,7 @@ include_once("../cabecalho.php");
                     foreach ($aperfil as $perfil) {
                     ?>
                     <label>
-                        <input type="checkbox" value="<?= $perfil['id_perfil'];?>">
+                        <input type="checkbox" value="<?= $perfil['id_perfil'];?>"  name="id_perfil[]">
                         <?= $perfil['nome']; ?>
                     </label>
                     <?php }?>

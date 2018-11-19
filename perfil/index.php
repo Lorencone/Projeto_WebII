@@ -24,7 +24,7 @@ $aperfils = $perfils->recuperarDados();
                 <tr>
                     <td>
                         <a href="../perfil/formulario.php?&id_perfil=<?= $perfil['id_perfil']?>" class="btn btn-info">Alterar</a>
-                        <a href="../perfil/processamento.php?acao=excluir&id_perfil=<?= $perfil['id_perfil']?>" class="btn btn-info">Excluir</a>
+                        <a href="../perfil/processamento.php?acao=excluir&id_perfil=<?= $perfil['id_perfil']?>" class="btn btn-danger">Excluir</a>
                     </td>
                     <td><?= $perfil['id_perfil']?></td>
                     <td><?= $perfil['nome']?></td>

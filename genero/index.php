@@ -24,7 +24,7 @@ $ageneros = $generos->recuperarDados();
                 <tr>
                     <td>
                         <a href="../genero/formulario.php?&id_genero=<?= $genero['id_genero']?>" class="btn btn-info">Alterar</a>
-                        <a href="../genero/processamento.php?acao=exluir&id_genero=<?= $genero['id_genero']?>" class="btn btn-info">Excluir</a>
+                        <a href="../genero/processamento.php?acao=excluir&id_genero=<?= $genero['id_genero']?>" class="btn btn-danger">Excluir</a>
                     </td>
                     <td><?= $genero['id_genero']?></td>
                     <td><?= $genero['nome']?></td>

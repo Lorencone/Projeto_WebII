@@ -24,11 +24,11 @@ $alegendas = $legendas->recuperarDados();
                 <tr>
                     <td>
                         <a href="../legenda/formulario.php?&id_legenda=<?= $legenda['id_legenda']?>" class="btn btn-info">Alterar</a>
-                        <a href="../legenda/processamento.php?acao=exluir&id_legenda=<?= $legenda['id_legenda']?>" class="btn btn-info">Excluir</a>
+                        <a href="../legenda/processamento.php?acao=excluir&id_legenda=<?= $legenda['id_legenda']?>" class="btn btn-danger">Excluir</a>
                     </td>
                     <td><?= $legenda['id_legenda']?></td>
                     <td><?= $legenda['nome']?></td>
-                </tr>"
+                </tr>
                 <?php
             }
             ?>

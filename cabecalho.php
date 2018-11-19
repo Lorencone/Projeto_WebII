@@ -27,15 +27,15 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-mask-plugin@1.14.15/dist/jquery.mask.min.js"></script>
     <script type="text/javascript" src="https://unpkg.com/sweetalert2@7.22.2/dist/sweetalert2.all.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.6/chosen.jquery.min.js"></script>
-     <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/jquery.mask.js"></script>
-    <script src="js/sweetalert2.all.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.3/chosen.css" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.8.3/chosen.jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $(".chosen-select").chosen()
+        });
     </script>
 <?php include_once('../css/navbar.php') ?>
+<?php include_once('../css/chosen.php') ?>
 
 </head>
 <?php //if (!empty($_SESSION['usuario'])) { ?>

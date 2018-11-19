@@ -25,12 +25,12 @@ $apaginas = $paginas->recuperarDados();
                 <tr>
                     <td>
                         <a href="../pagina/formulario.php?&id_pagina=<?= $pagina['id_pagina']?>" class="btn btn-info">Alterar</a>
-                        <a href="../pagina/processamento.php?acao=exluir&id_pagina=<?= $pagina['id_pagina']?>" class="btn btn-info">Excluir</a>
+                        <a href="../pagina/processamento.php?acao=excluir&id_pagina=<?= $pagina['id_pagina']?>" class="btn btn-danger">Excluir</a>
                     </td>
                     <td><?= $pagina['id_pagina']?></td>
                     <td><?= $pagina['nome']?></td>
                     <td><?= $pagina['publica']?></td>
-                </tr>"
+                </tr>
                 <?php
             }
             ?>

@@ -24,11 +24,11 @@ $aidiomas = $idiomas->recuperarDados();
                 <tr>
                     <td>
                         <a href="../idioma/formulario.php?&id_idioma=<?= $idioma['id_idioma']?>" class="btn btn-info">Alterar</a>
-                        <a href="../idioma/processamento.php?acao=exluir&id_idioma=<?= $idioma['id_idioma']?>" class="btn btn-info">Excluir</a>
+                        <a href="../idioma/processamento.php?acao=excluir&id_idioma=<?= $idioma['id_idioma']?>" class="btn btn-danger">Excluir</a>
                     </td>
                     <td><?= $idioma['id_idioma']?></td>
                     <td><?= $idioma['nome']?></td>
-                </tr>"
+                </tr>
                 <?php
             }
             ?>
