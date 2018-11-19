@@ -7,17 +7,14 @@ $filme = new Filme();
 switch ($_GET['acao']) {
 
     case 'salvar':
+        $origem = $_FILES['imagem']['tmp_name'];
+        $destino = '';
+
         if (!empty($_POST['id_filme'])) {
             $filme->alterar($_POST);
-            //print_r($_POST);
-            //echo "alterar";
-            //die;
             break;
         } else {
             $filme->inserir($_POST);
-            //print_r($_POST);
-            //echo "inserir";
-            //die;
             break;
         }
 

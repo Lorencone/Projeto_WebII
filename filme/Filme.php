@@ -224,12 +224,15 @@ class Filme
         $assistir = $dados['assistir'];
         $indicacao = $dados['indicacao'];
         $gasto = $dados['gasto'];
-        $imagem = $dados['imagem'];
+        $imagem = $_FILES['imagem']['name'];
         $estudio = $dados['estudio'];
         $id_classificacao = $dados['id_classificacao'];
         $id_pais = $dados['id_pais'];
 
         $conexao = new Conexao();
+
+        $this->uploadFoto();
+
         $sql = "insert into filme (nome, estreia, bilheteria, duracao, sinopse, critica, 
                                   trailer, assistir, indicacao, gasto, imagem, estudio, 
                                   id_classificacao, id_pais) 
@@ -359,12 +362,15 @@ class Filme
         $assistir = $dados['assistir'];
         $indicacao = $dados['indicacao'];
         $gasto = $dados['gasto'];
-        $imagem = $dados['imagem'];
+        $imagem = $_FILES['imagem']['name'];
         $estudio = $dados['estudio'];
         $id_classificacao = $dados['id_classificacao'];
         $id_pais = $dados['id_pais'];
 
         $conexao = new Conexao();
+
+        $this->uploadFoto();
+
         $sql = "update filme set
                         nome = '$nome', 
                         estreia = '$estreia', 
@@ -409,12 +415,11 @@ class Filme
 
     public function uploadFoto()
     {
-        if ($_FILES['foto']['erro'] == UPLOAD_ERR_OK){
-            $origem = $_FILES['foto']['tmp_name'];
-            $destino = '../upload/filme/' . $_FILES['foto']['name'];
+        if ($_FILES['imagem']['erro'] == UPLOAD_ERR_OK){
+            $origem = $_FILES['imagem']['tmp_name'];
+            $destino = '../upload/genero/' . $_FILES['imagem']['name'];
 
             move_uploaded_file($origem, $destino);
-            //TesteS
         }
     }
 }

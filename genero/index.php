@@ -28,7 +28,7 @@ $ageneros = $generos->recuperarDados();
                     </td>
                     <td><?= $genero['id_genero']?></td>
                     <td><?= $genero['nome']?></td>
-                </tr>"
+                </tr>
                 <?php
             }
             ?>

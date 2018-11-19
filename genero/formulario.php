@@ -11,7 +11,7 @@ include_once("../cabecalho.php");
     <div class="container" style="margin-top: 60px;">
         <h1>Gênero</h1>
         <br/>
-        <form method="post" action="../genero/processamento.php?acao=salvar" class="form-horizontal" enctype="multipart/form-data">
+        <form  enctype="multipart/form-data" method="post" action="../genero/processamento.php?acao=salvar" class="form-horizontal">
             <input type="hidden" name="id_genero" value="<?= $genero->getIdGenero(); ?>">
             <div class="form-group">
                 <label for="nome" class="col-sm-2 control-label">Nome</label>
@@ -23,7 +23,7 @@ include_once("../cabecalho.php");
             <div class="form-group">
                 <label for="imagem" class="col-sm-2 control-label">Imagem</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="imagem" name="imagem" value="<?= $genero->getImagem(); ?>">
+                    <input type="file" class="form-control" id="imagem" name="imagem" value="<?= $genero->getImagem(); ?>">
                 </div>
             </div>
             <div class="form-group">

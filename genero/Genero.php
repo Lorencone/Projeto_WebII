@@ -60,11 +60,12 @@ class Genero
     public function inserir($dados)
     {
         $nome = $dados['nome'];
-        $imagem = $_FILES['foto']['name'];
+        $imagem = $_FILES['imagem']['name'];
         $conexao = new Conexao();
+        $this->uploadFoto();
         $sql = "insert into genero (nome, imagem) values ('$nome', '$imagem')";
-        print_r($sql);
-        die;
+//        print_r($sql);
+//        die;
         return $conexao->executar($sql);
     }
 
@@ -72,14 +73,15 @@ class Genero
     {
         $id_genero = $dados['id_genero'];
         $nome = $dados['nome'];
-        $imagem = $_FILES['foto']['name'];
+        $imagem = $_FILES['imagem']['name'];
         $conexao = new Conexao();
+        $this->uploadFoto();
         $sql = "update genero set 
                 nome = '$nome',
                 imagem = '$imagem'
                 WHERE id_genero = '$id_genero'";
-        print_r($sql);
-        die;
+//        print_r($sql);
+//        die;
         return $conexao->executar($sql);
     }
 
@@ -88,16 +90,16 @@ class Genero
 
         $conexao = new Conexao();
         $sql = "DELETE FROM genero WHERE id_genero = '$id_genero'";
-        print_r($sql);
-        die;
+//        print_r($sql);
+//        die;
         return $conexao->executar($sql);
     }
 
     public function uploadFoto()
     {
-        if ($_FILES['foto']['erro'] == UPLOAD_ERR_OK){
-            $origem = $_FILES['foto']['tmp_name'];
-            $destino = '../upload/genero/' . $_FILES['foto']['name'];
+        if ($_FILES['imagem']['erro'] == UPLOAD_ERR_OK){
+            $origem = $_FILES['imagem']['tmp_name'];
+            $destino = '../upload/genero/' . $_FILES['imagem']['name'];
 
             move_uploaded_file($origem, $destino);
         }
@@ -112,5 +114,6 @@ class Genero
 
         return $dados[0]['qtd'];
     }
+
 }
 ?>

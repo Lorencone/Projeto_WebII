@@ -6,6 +6,9 @@ $genero = new Genero();
 switch ($_GET['acao']) {
 
     case 'salvar':
+        $origem = $_FILES['imagem']['tmp_name'];
+        $destino = '';
+
         if(!empty($_POST['id_genero'])){
             $genero->alterar($_POST);
             break;
