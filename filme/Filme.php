@@ -415,7 +415,7 @@ class Filme
     {
         if ($_FILES['imagem']['erro'] == UPLOAD_ERR_OK){
             $origem = $_FILES['imagem']['tmp_name'];
-            $destino = '../upload/genero/' . $_FILES['imagem']['name'];
+            $destino = '../upload/filme/' . $_FILES['imagem']['name'];
 
             move_uploaded_file($origem, $destino);
         }
