@@ -19,11 +19,11 @@ switch ($_GET['acao']) {
         break;
 
     case 'verificar_nome':
-        $existe = $filme->existeNome($_GET['nome']);
+        $existe = $trabalho->existeNome($_GET['nome']);
 
         if ($existe){
 
-            echo "<div class='alert' style='background: #2093ee; color: #ffffff'><h3 class='text-center'>Já existe {$existe} área de trabalho chamada de {$_GET['nome']}, informe outra.</h3></div>";
+            echo "<div class='alert' style='background: #000000; color: #ffffff'><h3 class='text-center'>Já existe {$existe} área de trabalho chamada de {$_GET['nome']}, informe outra.</h3></div>";
         }
 
         die;

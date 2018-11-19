@@ -21,13 +21,6 @@ include_once("../cabecalho.php");
                 </div>
             </div>
             <div class="form-group">
-                <label for="Sexo" class="col-sm-2 control-label">Sexo</label>
-                <div class="col-sm-10">
-                    <label class="radio-inline"><input required type="radio" name="sexo" id="sexo" value="M" <?= $usuario->getSexo() == "M" ? "checked" : '';?>>Masculino</label>
-                    <label class="radio-inline"><input required type="radio" name="sexo" id="sexo" value="F" <?= $usuario->getSexo() == "F" ? "checked" : '';?>>Feminino</label>
-                </div>
-            </div>
-            <div class="form-group">
                 <label for="senha" class="col-sm-2 control-label">Senha</label>
                 <div class="col-sm-10">
                     <input type="password" class="form-control" id="senha" name="senha" value="<?= $usuario->getSenha(); ?>">

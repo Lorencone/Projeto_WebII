@@ -17,18 +17,14 @@ switch ($_GET['acao']) {
         $usuario->excluir($_GET['id_usuario']);
         break;
 
-//    case 'verificar_nome':
-//        $existe = $filme->existeNome($_GET['nome']);
-//
-//        if ($existe){
-//            if ($existe > 1){
-//                echo "<div class='alert' style='background: #2093ee; color: #ffffff'><h3 class='text-center'>Já existem {$existe} pessoas chamadas de  {$_GET['nome']}, informe outra. </h3></div>";
-//            } else {
-//                echo "<div class='alert' style='background: #2093ee; color: #ffffff'><h3 class='text-center'>Já existe {$existe} pessoa chamada de {$_GET['nome']}, informe outra.</h3></div>";
-//            }
-//        }
-//
-//        break;
+    case 'verificar_email':
+        $existe = $usuario->existeEmail($_GET['email']);
+
+        if ($existe){
+            echo "<div class='alert' style='background: #000000; color: #ffffff'><h3 class='text-center'>Já existe {$existe} e-mail chamado de {$_GET['email']}, informe outro.</h3></div>";
+        }
+
+        break;
 
     case 'logar':
 
@@ -47,16 +43,6 @@ switch ($_GET['acao']) {
             }
         };
         break;
-
-
-    case 'verificar_email':
-        $existe = $usuario->existeEmail($_GET['email']);
-
-        if ($existe) {
-            echo "Esse email {$_GET['email']} já existe informe outro.";
-        }
-        die;
-
 }
 
 header('location: index.php');
