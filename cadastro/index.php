@@ -12,6 +12,9 @@ include_once ('../cabecalho.php');
         <li><a href="#legenda" data-toggle="tab">Legenda</a></li>
         <li><a href="#equipe" data-toggle="tab">Equipe</a></li>
         <li><a href="#trabalho" data-toggle="tab">Área de Trabalho</a></li>
+        <li><a href="#trabalho" data-toggle="tab">Usuário</a></li>
+        <li><a href="#trabalho" data-toggle="tab">Perfil</a></li>
+        <li><a href="#trabalho" data-toggle="tab">Página</a></li>
     </ul>
 </div>
 
@@ -39,6 +42,15 @@ include_once ('../cabecalho.php');
     </div>
     <div class="tab-pane" id="trabalho">
         <?php include_once ('../trabalho/index.php');?>
+    </div>
+    <div class="tab-pane" id="usuario">
+        <?php include_once ('../usuario/index.php');?>
+    </div>
+    <div class="tab-pane" id="perfil">
+        <?php include_once ('../perfil/index.php');?>
+    </div>
+    <div class="tab-pane" id="pagina">
+        <?php include_once ('../pagina/index.php');?>
     </div>
 </div>
 
