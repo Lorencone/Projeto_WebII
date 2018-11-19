@@ -28,4 +28,4 @@ switch ($_GET['acao']) {
 
 }
 
-header('location: index.php');
+header('location: ../cadastro/index.php#pagina');
