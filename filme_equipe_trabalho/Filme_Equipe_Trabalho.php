@@ -16,8 +16,14 @@ class Filme_Equipe_Trabalho
 
         $conexao = new Conexao();
 
-        $sql = "insert into filme_equipe_trabalho (id_filme, id_equipe, id_trabalho) 
-                               values ('$id_filme', '$id_equipe', '$id_trabalho')";
+        if ($id_trabalho == null){
+            $sql = "insert into filme_equipe_trabalho (id_filme, id_equipe) 
+                               values ('$id_filme', '$id_equipe')";
+        }
+        else{
+            $sql = "insert into filme_equipe_trabalho (id_filme, id_equipe, id_trabalho) 
+                                   values ('$id_filme', '$id_equipe', '$id_trabalho')";
+        }
 //        print_r($sql); die;
         return $conexao->executar($sql);
     }

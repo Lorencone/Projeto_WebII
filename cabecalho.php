@@ -56,7 +56,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="../index.php">Home</a></li>
                 <li><a href="../cadastro/index.php">Cadastro</a></li>
-                <li><a href="../categorias/index.php">Categorias</a></li>
+                <li><a href="../categoria/index.php">Categorias</a></li>
                 <li><a href="../usuario/index.php">Usuarios</a></li>
                 <li style="color:rgba(242,248,255,0.86); padding-top: 1.1em;" class="user-name">//</li>
                 <li>

@@ -6,6 +6,13 @@ class Filme_Genero
     protected $id_filme;
     protected $id_genero;
 
+    public function recuperarGenero($id_genero)
+    {
+        $conexao = new Conexao();
+
+        $sql = "select * from filme_genero where id_genero = '$id_genero'";
+        return $conexao->recuperarDados($sql);
+    }
 
     public function inserir($dados)
     {

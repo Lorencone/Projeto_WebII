@@ -179,11 +179,11 @@ class Filme
         return $conexao->recuperarDados($sql);
     }
 
-    public function carregarPorGenero($id_genero)
+    public function recuperarFilme($id_filme)
     {
         $conexao = new Conexao();
 
-        $sql = "select * from filme WHERE id_genero = '$id_genero'";
+        $sql = "select * from filme WHERE id_filme = '$id_filme'";
         return $conexao->recuperarDados($sql);
 
     }
@@ -257,19 +257,33 @@ class Filme
         $fet = new Filme_Equipe_Trabalho();
 
         if(isset($dados['id_equipe'])){
-
-            foreach ($dados['id_equipe'] as $equipe) {
-                foreach ($dados['id_trabalho'] as $trabalho) {
-
+            if($dados['id_trabalho'] == null){
+                foreach ($dados['id_equipe'] as $equipe) {
                     $aDados = [
                         'id_filme' => $id_filme,
                         'id_equipe' => $equipe,
-                        'id_trabalho' => $trabalho
+
                     ];
 
 //                    print_r($aDados);
 //                    die;
                     $fet->inserir($aDados);
+                }
+            }
+            else{
+                foreach ($dados['id_equipe'] as $equipe) {
+                    foreach ($dados['id_trabalho'] as $trabalho) {
+
+                        $aDados = [
+                            'id_filme' => $id_filme,
+                            'id_equipe' => $equipe,
+                            'id_trabalho' => $trabalho
+                        ];
+
+//                    print_r($aDados);
+//                    die;
+                        $fet->inserir($aDados);
+                    }
                 }
             }
         }
