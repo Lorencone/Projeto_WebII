@@ -20,7 +20,7 @@ switch ($_GET['acao']) {
 
         if ($existe){
 
-            echo "<div class='alert' style='background: #000000; color: #ffffff'><h3 class='text-center'>Já existe {$existe} pais chamado de {$_GET['nome']}, informe outro.</h3></div>";
+            echo "<div class='alert' style='background: #373737; color: #ffffff'><h3 class='text-center'>Já existe {$existe} pais chamado de {$_GET['nome']}, informe outro.</h3></div>";
         }
 
         die;

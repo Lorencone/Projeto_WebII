@@ -29,7 +29,7 @@ switch ($_GET['acao']) {
         $existe = $filme->existeNome($_GET['nome']);
 
         if ($existe){
-            echo "<div class='alert' style='background: #000000; color: #ffffff'><h3 class='text-center'>Já existe {$existe} filme chamado de {$_GET['nome']}, informe outro.</h3></div>";
+            echo "<div class='alert' style='background: #373737; color: #ffffff'><h3 class='text-center'>Já existe {$existe} filme chamado de {$_GET['nome']}, informe outro.</h3></div>";
         }
 
         die;

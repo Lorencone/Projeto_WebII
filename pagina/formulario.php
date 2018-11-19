@@ -38,17 +38,15 @@ include_once("../cabecalho.php");
             </div>
             <div class="form-group">
                 <label for="id_perfil" class="col-sm-2 control-label">Perfil</label>
-                <div class="col-sm-10">
-                    <select class="form-control" id="id_perfil" name="id_perfil[]">
-                        <option value="">Selecione</option>
-                        <?php
-                        foreach ($aperfil as $perfil) {
-                            ?>
-                            <option value="<?= $perfil['id_perfil'];?>">
-                                <?= $perfil['nome']; ?>
-                            </option>
-                        <?php }?>
-                    </select>
+                <div class="checkbox">
+                    <?php
+                    foreach ($aperfil as $perfil) {
+                    ?>
+                    <label>
+                        <input type="checkbox" value="<?= $perfil['id_perfil'];?>">
+                        <?= $perfil['nome']; ?>
+                    </label>
+                    <?php }?>
                 </div>
             </div>
             <div class="form-group">

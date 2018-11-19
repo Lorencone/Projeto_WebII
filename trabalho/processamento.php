@@ -23,7 +23,7 @@ switch ($_GET['acao']) {
 
         if ($existe){
 
-            echo "<div class='alert' style='background: #000000; color: #ffffff'><h3 class='text-center'>Já existe {$existe} área de trabalho chamada de {$_GET['nome']}, informe outra.</h3></div>";
+            echo "<div class='alert' style='background: #373737; color: #ffffff'><h3 class='text-center'>Já existe {$existe} área de trabalho chamada de {$_GET['nome']}, informe outra.</h3></div>";
         }
 
         die;

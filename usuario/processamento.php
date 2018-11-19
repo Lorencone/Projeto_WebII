@@ -21,7 +21,7 @@ switch ($_GET['acao']) {
         $existe = $usuario->existeEmail($_GET['email']);
 
         if ($existe){
-            echo "<div class='alert' style='background: #000000; color: #ffffff'><h3 class='text-center'>Já existe {$existe} e-mail chamado de {$_GET['email']}, informe outro.</h3></div>";
+            echo "<div class='alert' style='background: #373737; color: #ffffff'><h3 class='text-center'>Já existe {$existe} e-mail chamado de {$_GET['email']}, informe outro.</h3></div>";
         }
 
         break;

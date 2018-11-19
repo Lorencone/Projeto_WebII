@@ -35,7 +35,7 @@
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous">
     </script>
-<!--    --><?php include_once('../css/navbar.php') ?>
+<?php include_once('../css/navbar.php') ?>
 
 </head>
 <?php //if (!empty($_SESSION['usuario'])) { ?>
