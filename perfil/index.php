@@ -2,6 +2,7 @@
 include_once ('../conexao/conectar.php');
 $perfils = new Perfil();
 $aperfils = $perfils->recuperarDados();
+include_once '../cabecalho.php';
 ?>
     <div class="container" style="margin-top: 60px;">
         <h2>Perfil</h2>

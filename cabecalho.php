@@ -54,21 +54,36 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="../index.php">Home</a></li>
-                <li><a href="../cadastro/index.php">Cadastro</a></li>
-                <li><a href="../categoria/index.php">Categorias</a></li>
-                <li><a href="../usuario/index.php">Usuarios</a></li>
-<!--                <li style="color:rgba(242,248,255,0.86); padding-top: 1.1em;" class="user-name">--><?//= $_SESSION['usuario']['nome']; ?><!--</li>-->
-                <li>
-                    <a href="../usuario/logof.php"><i class="glyphicon glyphicon-log-out"></i></a>
-                    <!--                    <a style="color: #f9fffa" title="Sair" href="../usuario/processamento.php?acao=deslogar" class="fa fa-sign-out"></a>-->
+                <li class="active"><a href="../categoria/index.php">Home</a></li>
+                <li><a href="../categoria/index.php">Categoria</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastro<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../filme/index.php">Filme</a></li>
+                        <li><a href="../genero/index.php">Genêro</a></li>
+                        <li><a href="../classificacao/index.php">Classificação</a></li>
+                        <li><a href="../idioma/index.php">Idioma</a></li>
+                        <li><a href="../legenda/index.php">Legenda</a></li>
+                        <li><a href="../equipe/index.php">Equipe</a></li>
+                        <li><a href="../trabalho/index.php">Trabalho</a></li>
+                        <li><a href="../pais/index.php">Pais</a></li>
+                    </ul>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Acesso<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../usuario/index.php">Usuario</a></li>
+                        <li><a href="../perfil/index.php">Perfil</a></li>
+                        <li><a href="../pagina/index.php">Página</a></li>
+                    </ul>
                 </li>
             </ul>
-            <form class="navbar-form navbar-right">
-                <input type="text" class="form-control" placeholder="Search...">
-            </form>
-        </div>
+        </div><!--/.nav-collapse -->
     </div>
 </nav>
 
 <?php //} ?>
+<!--                <li style="color:rgba(242,248,255,0.86); padding-top: 1.1em;" class="user-name">--><?//= $_SESSION['usuario']['nome']; ?><!--</li>-->
+
+
+<!--                    <a style="color: #f9fffa" title="Sair" href="../usuario/processamento.php?acao=deslogar" class="fa fa-sign-out"></a>-->
+

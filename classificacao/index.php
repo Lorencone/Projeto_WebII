@@ -1,5 +1,6 @@
 <?php
 include_once ('../conexao/conectar.php');
+include_once '../cabecalho.php';
 $classificacaos = new Classificacao();
 $aclassificacaos = $classificacaos->recuperarDados();
 ?>

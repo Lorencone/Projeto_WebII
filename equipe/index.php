@@ -2,6 +2,8 @@
 include_once ('../conexao/conectar.php');
 $equipes = new Equipe();
 $aequipes = $equipes->recuperarDados();
+include_once '../cabecalho.php';
+
 ?>
     <div class="container" style="margin-top: 60px;">
         <h2>Equipe</h2>

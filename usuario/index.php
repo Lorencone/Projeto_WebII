@@ -6,6 +6,7 @@ $perfis = new Perfil();
 $ausuarios = $usuarios->recuperarDados();
 $aperfil = $perfis->recuperarDados();
 
+include_once '../cabecalho.php';
 ?>
     <div class="container" style="margin-top: 60px;">
         <h2>Usuario</h2>

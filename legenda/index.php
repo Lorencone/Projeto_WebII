@@ -2,6 +2,7 @@
 include_once ('../conexao/conectar.php');
 $legendas = new Legenda();
 $alegendas = $legendas->recuperarDados();
+include_once '../cabecalho.php';
 ?>
     <div class="container" style="margin-top: 60px;">
         <h2>Legenda</h2>

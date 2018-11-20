@@ -2,6 +2,7 @@
 include_once ('../conexao/conectar.php');
 $trabalhos = new Trabalho();
 $atrabalhos = $trabalhos->recuperarDados();
+include_once '../cabecalho.php';
 ?>
     <div class="container" style="margin-top: 60px;">
         <h2>Trabalho</h2>

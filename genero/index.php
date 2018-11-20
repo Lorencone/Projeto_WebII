@@ -2,6 +2,7 @@
 include_once ('../conexao/conectar.php');
 $generos = new Genero();
 $ageneros = $generos->recuperarDados();
+include_once '../cabecalho.php';
 ?>
     <div class="container" style="margin-top: 60px;">
         <h2>Gênero</h2>

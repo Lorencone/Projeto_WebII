@@ -2,6 +2,7 @@
 include_once ('../conexao/conectar.php');
 $idiomas = new Idioma();
 $aidiomas = $idiomas->recuperarDados();
+include_once '../cabecalho.php';
 ?>
     <div class="container" style="margin-top: 60px;">
         <h2>Idioma</h2>

@@ -2,6 +2,7 @@
 include_once ('../conexao/conectar.php');
 $paginas = new Pagina();
 $apaginas = $paginas->recuperarDados();
+include_once '../cabecalho.php';
 ?>
     <div class="container" style="margin-top: 60px;">
         <h2>Pagina</h2>

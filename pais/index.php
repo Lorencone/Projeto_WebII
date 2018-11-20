@@ -2,6 +2,7 @@
 include_once ('../conexao/conectar.php');
 $paiss = new Pais();
 $apaiss = $paiss->recuperarDados();
+include_once '../cabecalho.php';
 ?>
     <div class="container" style="margin-top: 60px;">
         <h2>Pais</h2>

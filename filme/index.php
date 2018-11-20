@@ -2,6 +2,7 @@
 include_once ('../conexao/conectar.php');
 $filmes = new Filme();
 $afilmes = $filmes->recuperarDados();
+include_once '../cabecalho.php';
 ?>
     <div class="container" style="margin-top: 60px;">
         <h2>Filme</h2>
