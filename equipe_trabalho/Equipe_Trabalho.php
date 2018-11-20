@@ -7,6 +7,13 @@ class Equipe_Trabalho
     protected $id_equipe;
     protected $id_trabalho;
 
+    public function recuperarDados()
+    {
+        $conexao = new Conexao();
+
+        $sql = "select * from equipe_trabalho";
+        return $conexao->recuperarDados($sql);
+    }
 
     public function inserir($dados)
     {

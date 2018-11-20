@@ -10,6 +10,7 @@ $tipo = new Genero();
 $local  = new Pais();
 $pessoa = new Equipe();
 $atuar = new Trabalho();
+$aequipe_trabalhos = new Equipe_Trabalho();
 
 $id_classicacoes = $etaria->recuperarDados();
 $id_idiomas = $dublado->recuperarDados();
@@ -18,6 +19,7 @@ $id_generos = $tipo->recuperarDados();
 $id_paises  = $local->recuperarDados();
 $id_equipes = $pessoa->recuperarDados();
 $id_trabalhos = $atuar->recuperarDados();
+$equipe_trabalhos = $aequipe_trabalhos->recuperarDados();
 
 if(!empty($_GET['id_filme'])){
     $filme->carregarPorId($_GET['id_filme']);
@@ -162,17 +164,25 @@ include_once("../cabecalho.php");
                 </div>
             </div>
             <div class="form-group">
-                <label for="id_equipe" class="col-sm-2 control-label">Equipe</label>
+                <label for="id_equipe_trabalho" class="col-sm-2 control-label">Equipe</label>
                 <div class="col-sm-10">
-                    <select class="form-control chosen" multiple id="id_equipe" name="id_equipe[]">
+                    <select class="form-control chosen" multiple id="id_equipe_trabalho" name="id_equipe_trabalho[]">
                         <option>Selecione</option>
                         <?php
-                        foreach ($id_equipes as $id_equipe) {
+                        foreach ($equipe_trabalhos as $equipe_trabalho) {
+                            foreach ($id_equipes as $id_equipe){
+                                foreach ($id_trabalhos as $id_trabalho){
                             ?>
-                            <option required value="<?= $id_equipe['id_equipe'];?>">
-                                <?= $id_equipe['nome']; ?>
+                            <option required value="<?= $equipe_trabalho['id_equipe_trabalho'];?>">
+                                <?= ($equipe_trabalho['id_equipe'] == $id_equipe['id_equipe'])? "{$id_equipe['nome']}" : ''; ?>
+                                <?= " - ";?>
+                                <?= ($equipe_trabalho['id_trabalho'] == $id_equipe['id_trabalho'])? "{$id_trabalho['nome']}" : ''; ?>
                             </option>
-                        <?php }?>
+                        <?php
+                                }
+                            }
+                        }
+                        ?>
                     </select>
                 </div>
             </div>

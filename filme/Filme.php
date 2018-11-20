@@ -256,36 +256,19 @@ class Filme
 
         $fet = new Filme_Equipe_Trabalho();
 
-        if(isset($dados['id_equipe'])){
-            if($dados['id_trabalho'] == null){
-                foreach ($dados['id_equipe'] as $equipe) {
-                    $aDados = [
-                        'id_filme' => $id_filme,
-                        'id_equipe' => $equipe,
+        if (isset($dados['id_equipe_trabalho'])) {
+            foreach ($dados['id_equipe_trabalho'] as $equipe) {
+                $aDados = [
+                    'id_filme' => $id_filme,
+                    'id_equipe_trabalho' => $equipe,
 
-                    ];
-
-//                    print_r($aDados);
-//                    die;
-                    $fet->inserir($aDados);
-                }
-            }
-            else{
-                foreach ($dados['id_equipe'] as $equipe) {
-                    foreach ($dados['id_trabalho'] as $trabalho) {
-
-                        $aDados = [
-                            'id_filme' => $id_filme,
-                            'id_equipe' => $equipe,
-                            'id_trabalho' => $trabalho
-                        ];
+                ];
 
 //                    print_r($aDados);
 //                    die;
-                        $fet->inserir($aDados);
-                    }
-                }
+                $fet->inserir($aDados);
             }
+
         }
 
     }
@@ -296,8 +279,7 @@ class Filme
 
         $fg = new Filme_Genero();
 
-        if(isset($dados['id_genero'])){
-
+        if (isset($dados['id_genero'])) {
             foreach ($dados['id_genero'] as $genero) {
 
                 $aDados = [
@@ -320,7 +302,7 @@ class Filme
 
         $fi = new Filme_Idioma();
 
-        if(isset($dados['id_idioma'])){
+        if (isset($dados['id_idioma'])) {
 
             foreach ($dados['id_idioma'] as $idioma) {
 
@@ -343,7 +325,7 @@ class Filme
 
         $fl = new Filme_Legenda();
 
-        if(isset($dados['id_legenda'])){
+        if (isset($dados['id_legenda'])) {
 
             foreach ($dados['id_legenda'] as $legenda) {
 
@@ -359,7 +341,7 @@ class Filme
         }
 
     }
-    
+
 
     public function alterar($dados)
     {
@@ -427,7 +409,7 @@ class Filme
 
     public function uploadFoto()
     {
-        if ($_FILES['imagem']['erro'] == UPLOAD_ERR_OK){
+        if ($_FILES['imagem']['erro'] == UPLOAD_ERR_OK) {
             $origem = $_FILES['imagem']['tmp_name'];
             $destino = '../upload/filme/' . $_FILES['imagem']['name'];
 
