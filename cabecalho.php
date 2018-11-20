@@ -54,7 +54,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="../categoria/index.php">Home</a></li>
+                <li><a href="../categoria/index.php">Home</a></li>
                 <li><a href="../categoria/index.php">Categoria</a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastro<span class="caret"></span></a>

@@ -90,7 +90,7 @@ class Usuario{
 
         $this->id_usuario = $dados[0]['id_usuario'];
         $this->nome = $dados[0]['nome'];
-        $this->sexo = $dados[0]['sexo'];
+        $this->senha = $dados[0]['senha'];
         $this->email = $dados[0]['email'];
         $this->id_perfil = $dados[0]['id_perfil'];
 
@@ -122,7 +122,6 @@ class Usuario{
         $id_usuario = $dados['id_usuario'];
         $nome = $dados['nome'];
 
-        $sexo = $dados['sexo'];
         $email = $dados['email'];
         $senha = $dados['senha'];
         $id_perfil = $dados['id_perfil'];
@@ -132,7 +131,6 @@ class Usuario{
         $sql = "UPDATE usuario SET
                   id_usuario = '$id_usuario',
                   nome = '$nome',
-                  sexo = '$sexo',
                   email = '$email',
                   senha = '".md5($senha)."',
                   id_perfil = '$id_perfil'
@@ -175,7 +173,6 @@ class Usuario{
             $_SESSION['usuario']['id_usuario'] = $dados[0]['id_usuario'];
             $_SESSION['usuario']['nome'] = $dados[0]['nome'];
             $_SESSION['usuario']['email'] = $dados[0]['email'];
-            $_SESSION['usuario']['sexo'] = $dados[0]['sexo'];
             $_SESSION['usuario']['id_perfil'] = $dados[0]['id_perfil'];
 
         }
