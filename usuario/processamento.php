@@ -34,11 +34,14 @@ switch ($_GET['acao']) {
 
             switch ($_SESSION['usuario']['id_perfil']){
 
-                case Perfil::PERFIL_ADMINISTRADOR:
-                    header('location: ../usuario/formulario.php');
-                    die;
                 case Perfil::PERFIL_USUARIO:
-                    header('location: ../usuario/index.php');
+                    header('location: ../categoria/index.php');
+                    die;
+                case Perfil::PERFIL_EDITOR:
+                    header('location: ../filme/index.php');
+                    die;
+                case Perfil::PERFIL_ADMINISTRADOR:
+                    header('location: ../pagina/index.php');
                     die;
             }
         };
