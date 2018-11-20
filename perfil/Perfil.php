@@ -7,8 +7,9 @@ class Perfil
     protected $id_perfil;
     protected $nome;
 
-    const PERFIL_ADMINISTRADOR = 1;
-    const PERFIL_USUARIO = 2;
+    const PERFIL_USUARIO = 1;
+    const PERFIL_EDITOR = 2;
+    const PERFIL_ADMINISTRADOR = 3;
 
 
     public function getIdPerfil()
