@@ -979,9 +979,7 @@
     <table id="246" parent="4" name="equipe">
       <Collation>utf8_czech_ci</Collation>
     </table>
-    <table id="247" parent="4" name="equipe_trabalho">
-      <Collation>utf8_czech_ci</Collation>
-    </table>
+    <table id="247" parent="4" name="equipe_trabalho"/>
     <table id="248" parent="4" name="filme">
       <Collation>utf8_czech_ci</Collation>
     </table>
@@ -1086,169 +1084,169 @@
       <RefTableName>pais</RefTableName>
       <RefColNames>id_pais</RefColNames>
     </foreign-key>
-    <column id="274" parent="247" name="id_equipe">
-      <Position>1</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="275" parent="247" name="id_trabalho">
-      <Position>2</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <index id="276" parent="247" name="fk_equipe_has_trabalho_equipe_idx">
-      <ColNames>id_equipe</ColNames>
-      <Type>btree</Type>
-    </index>
-    <index id="277" parent="247" name="fk_equipe_has_trabalho_trabalho1_idx">
-      <ColNames>id_trabalho</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="278" parent="247" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id_equipe
-id_trabalho</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="279" parent="247" name="fk_equipe_has_trabalho_equipe">
-      <ColNames>id_equipe</ColNames>
-      <RefSchemaName>filmes</RefSchemaName>
-      <RefTableName>equipe</RefTableName>
-      <RefColNames>id_equipe</RefColNames>
-    </foreign-key>
-    <foreign-key id="280" parent="247" name="fk_equipe_has_trabalho_trabalho1">
-      <ColNames>id_trabalho</ColNames>
-      <RefSchemaName>filmes</RefSchemaName>
-      <RefTableName>trabalho</RefTableName>
-      <RefColNames>id_trabalho</RefColNames>
-    </foreign-key>
-    <column id="281" parent="248" name="id_filme">
+    <column id="274" parent="247" name="id_equipe_trabalho">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="282" parent="248" name="nome">
+    <column id="275" parent="247" name="id_equipe">
+      <Position>2</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="276" parent="247" name="id_trabalho">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="277" parent="247" name="fk_equipe_trabalho_equipe1_idx">
+      <ColNames>id_equipe</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="278" parent="247" name="fk_equipe_trabalho_trabalho1_idx">
+      <ColNames>id_trabalho</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="279" parent="247" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id_equipe_trabalho</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="280" parent="247" name="fk_equipe_trabalho_equipe1">
+      <ColNames>id_equipe</ColNames>
+      <RefSchemaName>filmes</RefSchemaName>
+      <RefTableName>equipe</RefTableName>
+      <RefColNames>id_equipe</RefColNames>
+    </foreign-key>
+    <foreign-key id="281" parent="247" name="fk_equipe_trabalho_trabalho1">
+      <ColNames>id_trabalho</ColNames>
+      <RefSchemaName>filmes</RefSchemaName>
+      <RefTableName>trabalho</RefTableName>
+      <RefColNames>id_trabalho</RefColNames>
+    </foreign-key>
+    <column id="282" parent="248" name="id_filme">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="283" parent="248" name="nome">
       <Position>2</Position>
       <DataType>varchar(200)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="283" parent="248" name="estreia">
+    <column id="284" parent="248" name="estreia">
       <Position>3</Position>
       <DataType>date|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="284" parent="248" name="estudio">
+    <column id="285" parent="248" name="estudio">
       <Position>4</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="285" parent="248" name="bilheteria">
+    <column id="286" parent="248" name="bilheteria">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="286" parent="248" name="duracao">
+    <column id="287" parent="248" name="duracao">
       <Position>6</Position>
       <DataType>time|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="287" parent="248" name="sinopse">
+    <column id="288" parent="248" name="sinopse">
       <Position>7</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="288" parent="248" name="critica">
+    <column id="289" parent="248" name="critica">
       <Position>8</Position>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="289" parent="248" name="trailer">
+    <column id="290" parent="248" name="trailer">
       <Position>9</Position>
       <DataType>varchar(200)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="248" name="assistir">
+    <column id="291" parent="248" name="assistir">
       <Position>10</Position>
       <DataType>varchar(200)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="291" parent="248" name="indicacao">
+    <column id="292" parent="248" name="indicacao">
       <Position>11</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="292" parent="248" name="gasto">
+    <column id="293" parent="248" name="gasto">
       <Position>12</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="293" parent="248" name="imagem">
+    <column id="294" parent="248" name="imagem">
       <Position>13</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="248" name="id_classificacao">
+    <column id="295" parent="248" name="id_classificacao">
       <Position>14</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="295" parent="248" name="id_pais">
+    <column id="296" parent="248" name="id_pais">
       <Position>15</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="296" parent="248" name="fk_filme_classificacao1_idx">
+    <index id="297" parent="248" name="fk_filme_classificacao1_idx">
       <ColNames>id_classificacao</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="297" parent="248" name="fk_filme_pais1_idx">
+    <index id="298" parent="248" name="fk_filme_pais1_idx">
       <ColNames>id_pais</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="298" parent="248" name="PRIMARY">
+    <key id="299" parent="248" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_filme</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="299" parent="248" name="fk_filme_classificacao1">
+    <foreign-key id="300" parent="248" name="fk_filme_classificacao1">
       <ColNames>id_classificacao</ColNames>
       <RefSchemaName>filmes</RefSchemaName>
       <RefTableName>classificacao</RefTableName>
       <RefColNames>id_classificacao</RefColNames>
     </foreign-key>
-    <foreign-key id="300" parent="248" name="fk_filme_pais1">
+    <foreign-key id="301" parent="248" name="fk_filme_pais1">
       <ColNames>id_pais</ColNames>
       <RefSchemaName>filmes</RefSchemaName>
       <RefTableName>pais</RefTableName>
       <RefColNames>id_pais</RefColNames>
     </foreign-key>
-    <column id="301" parent="249" name="id_filme">
+    <column id="302" parent="249" name="id_filme">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="302" parent="249" name="id_equipe">
+    <column id="303" parent="249" name="id_equipe_trabalho">
       <Position>2</Position>
-      <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="303" parent="249" name="id_trabalho">
-      <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
@@ -1258,15 +1256,13 @@ id_trabalho</ColNames>
       <Type>btree</Type>
     </index>
     <index id="305" parent="249" name="fk_filme_has_equipe_trabalho_equipe_trabalho1_idx">
-      <ColNames>id_equipe
-id_trabalho</ColNames>
+      <ColNames>id_equipe_trabalho</ColNames>
       <Type>btree</Type>
     </index>
     <key id="306" parent="249" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id_filme
-id_equipe
-id_trabalho</ColNames>
+id_equipe_trabalho</ColNames>
       <Primary>1</Primary>
     </key>
     <foreign-key id="307" parent="249" name="fk_filme_has_equipe_trabalho_filme1">
@@ -1276,12 +1272,10 @@ id_trabalho</ColNames>
       <RefColNames>id_filme</RefColNames>
     </foreign-key>
     <foreign-key id="308" parent="249" name="fk_filme_has_equipe_trabalho_equipe_trabalho1">
-      <ColNames>id_equipe
-id_trabalho</ColNames>
+      <ColNames>id_equipe_trabalho</ColNames>
       <RefSchemaName>filmes</RefSchemaName>
       <RefTableName>equipe_trabalho</RefTableName>
-      <RefColNames>id_equipe
-id_trabalho</RefColNames>
+      <RefColNames>id_equipe_trabalho</RefColNames>
     </foreign-key>
     <column id="309" parent="250" name="id_filme">
       <Position>1</Position>
