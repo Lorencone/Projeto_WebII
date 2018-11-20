@@ -26,4 +26,4 @@ switch ($_GET['acao']) {
         die;
         break;
 }
-header('location: ../cadastro/index.php#pais');
+header('location: index.php');

@@ -27,4 +27,4 @@ switch ($_GET['acao']) {
         break;
 }
 
-header('location: ../cadastro/index.php#perfil');
+header('location: index.php');

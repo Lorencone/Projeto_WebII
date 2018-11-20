@@ -25,6 +25,6 @@ switch ($_GET['acao']) {
         die;
         break;
 }
-header('location: ../cadastro/index.php#equipe');
+header('location: index.php');
 
 ?>

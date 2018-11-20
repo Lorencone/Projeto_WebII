@@ -28,4 +28,4 @@ switch ($_GET['acao']) {
         die;
         break;
 }
-header('location: ../cadastro/index.php#trabalho');
+header('location: index.php');

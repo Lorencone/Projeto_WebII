@@ -32,6 +32,6 @@ switch ($_GET['acao']) {
         die;
         break;
 }
-header('location: ../cadastro/index.php#genero');
+header('location: index.php');
 ?>
 

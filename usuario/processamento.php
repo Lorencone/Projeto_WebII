@@ -45,5 +45,5 @@ switch ($_GET['acao']) {
         break;
 }
 
-header('location: ../cadastro/index.php#usuario');
+header('location: index.php');
 ?>

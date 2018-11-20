@@ -27,5 +27,5 @@ switch ($_GET['acao']) {
         die;
         break;
 }
-header('location: ../cadastro/index.php#idioma');
+header('location: index.php');
 ?>
