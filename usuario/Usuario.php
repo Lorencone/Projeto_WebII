@@ -167,6 +167,8 @@ class Usuario{
         $sql = "SELECT * FROM usuario WHERE email = '$email' and senha = '$senha'";
         $dados = $conexao->recuperarDados($sql);
 
+//        print_r($sql);
+//        die;
 
         if (count($dados)){
 
@@ -174,6 +176,9 @@ class Usuario{
             $_SESSION['usuario']['nome'] = $dados[0]['nome'];
             $_SESSION['usuario']['email'] = $dados[0]['email'];
             $_SESSION['usuario']['id_perfil'] = $dados[0]['id_perfil'];
+
+//            print_r($_SESSION['usuario']);
+//            die;
 
         }
 
@@ -199,24 +204,30 @@ class Usuario{
         foreach ($paginas as $pagina){
             if ($url2[0] == $raizUrl . $pagina['caminho']){
 
-                  return true;
 //                print_r($pagina);
 //                echo "<br>";
 //                die;
+                return true;
             }
         }
 
         // Caso a página não seja pública, verifica se o usuário está logado
         // para então verificar se ele tem acesso à página
-        if (!empty($_SESSION['usuario']['id_usuario'])){
+        if (!empty($_SESSION['usuario']['id_perfil'])){
+
             $perfil = $_SESSION['usuario']['id_perfil'];
+
             $sql = "SELECT * FROM permissao pe
                       INNER JOIN pagina pa on pa.id_pagina = pe.id_pagina
                     WHERE id_perfil = $perfil";
+
             $paginas = $conexao->recuperarDados($sql);
 
             foreach ($paginas as $pagina){
                 if ($url2[0] == $raizUrl . $pagina['caminho']){
+//                    print_r($pagina);
+//                    echo "<br>";
+//                    die;
                     return true;
                 }
             }

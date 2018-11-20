@@ -35,12 +35,15 @@ switch ($_GET['acao']) {
             switch ($_SESSION['usuario']['id_perfil']){
 
                 case Perfil::PERFIL_USUARIO:
+                    echo "Você e usuario";
                     header('location: ../categoria/index.php');
                     die;
                 case Perfil::PERFIL_EDITOR:
-                    header('location: ../filme/index.php');
+                    echo "Você e Editor";
                     die;
+                    header('location: ../filme/index.php');
                 case Perfil::PERFIL_ADMINISTRADOR:
+                    echo "Você e Administrador";
                     header('location: ../pagina/index.php');
                     die;
             }
