@@ -30,6 +30,8 @@ include_once '../cabecalho.php';
     <div class="container">
         <h1><?= $filme->getNome() ?></h1>
         <br>
+        <img src="../upload/filme/<?= $filme->getImagem();?>" style="width: 400px; height: 400px" class="img-rounded">
+
         <p><strong>Estreia: </strong><?= $filme->getEstreia(); ?></p>
         <p><strong>Estudio: </strong><?= $filme->getEstudio(); ?></p>
         <p><strong>Genêro:</strong>
