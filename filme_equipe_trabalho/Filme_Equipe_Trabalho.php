@@ -3,6 +3,7 @@ include_once '../conexao/Conexao.php';
 
 class Filme_Equipe_Trabalho
 {
+    protected $id_filme_equipe_trabalho;
     protected $id_filme;
     protected $id_equipe_trabalho;
 
@@ -21,11 +22,11 @@ class Filme_Equipe_Trabalho
         return $conexao->executar($sql);
     }
 
-//    public function excluir($id_permissao)
-//    {
-//        $conexao = new Conexao();
-//
-//        $sql = "delete from permissao where id_permissao = '$id_permissao'";
-//        return $conexao->executar($sql);
-//    }
+    public function excluir($id_filme_equipe_trabalho)
+    {
+        $conexao = new Conexao();
+
+        $sql = "delete from filme_equipe_trabalho where id_equipe_trabalho = '$id_filme_equipe_trabalho'";
+        return $conexao->executar($sql);
+    }
 }
