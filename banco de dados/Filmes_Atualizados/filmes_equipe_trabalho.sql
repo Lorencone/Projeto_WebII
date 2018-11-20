@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `filmes` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `filmes`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: filmes
@@ -23,14 +25,15 @@ DROP TABLE IF EXISTS `equipe_trabalho`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `equipe_trabalho` (
+  `id_equipe_trabalho` int(11) NOT NULL AUTO_INCREMENT,
   `id_equipe` int(11) NOT NULL,
   `id_trabalho` int(11) NOT NULL,
-  PRIMARY KEY (`id_equipe`,`id_trabalho`),
-  KEY `fk_equipe_has_trabalho_trabalho1_idx` (`id_trabalho`),
-  KEY `fk_equipe_has_trabalho_equipe_idx` (`id_equipe`),
-  CONSTRAINT `fk_equipe_has_trabalho_equipe` FOREIGN KEY (`id_equipe`) REFERENCES `equipe` (`id_equipe`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_equipe_has_trabalho_trabalho1` FOREIGN KEY (`id_trabalho`) REFERENCES `trabalho` (`id_trabalho`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+  PRIMARY KEY (`id_equipe_trabalho`),
+  KEY `fk_equipe_trabalho_equipe1_idx` (`id_equipe`),
+  KEY `fk_equipe_trabalho_trabalho1_idx` (`id_trabalho`),
+  CONSTRAINT `fk_equipe_trabalho_equipe1` FOREIGN KEY (`id_equipe`) REFERENCES `equipe` (`id_equipe`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_equipe_trabalho_trabalho1` FOREIGN KEY (`id_trabalho`) REFERENCES `trabalho` (`id_trabalho`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +42,6 @@ CREATE TABLE `equipe_trabalho` (
 
 LOCK TABLES `equipe_trabalho` WRITE;
 /*!40000 ALTER TABLE `equipe_trabalho` DISABLE KEYS */;
-INSERT INTO `equipe_trabalho` VALUES (2,1),(2,2);
 /*!40000 ALTER TABLE `equipe_trabalho` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-19 11:23:48
+-- Dump completed on 2018-11-20 11:26:07

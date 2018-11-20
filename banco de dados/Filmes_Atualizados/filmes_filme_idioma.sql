@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `filmes` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `filmes`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: filmes
@@ -23,14 +25,15 @@ DROP TABLE IF EXISTS `filme_idioma`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `filme_idioma` (
+  `id_filme_idioma` int(11) NOT NULL AUTO_INCREMENT,
   `id_filme` int(11) NOT NULL,
   `id_idioma` int(11) NOT NULL,
-  PRIMARY KEY (`id_filme`,`id_idioma`),
-  KEY `fk_filme_has_idioma_idioma1_idx` (`id_idioma`),
-  KEY `fk_filme_has_idioma_filme1_idx` (`id_filme`),
-  CONSTRAINT `fk_filme_has_idioma_filme1` FOREIGN KEY (`id_filme`) REFERENCES `filme` (`id_filme`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_filme_has_idioma_idioma1` FOREIGN KEY (`id_idioma`) REFERENCES `idioma` (`id_idioma`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+  PRIMARY KEY (`id_filme_idioma`),
+  KEY `fk_filme_idioma_idioma1_idx` (`id_idioma`),
+  KEY `fk_filme_idioma_filme1_idx` (`id_filme`),
+  CONSTRAINT `fk_filme_idioma_filme1` FOREIGN KEY (`id_filme`) REFERENCES `filme` (`id_filme`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_filme_idioma_idioma1` FOREIGN KEY (`id_idioma`) REFERENCES `idioma` (`id_idioma`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +42,6 @@ CREATE TABLE `filme_idioma` (
 
 LOCK TABLES `filme_idioma` WRITE;
 /*!40000 ALTER TABLE `filme_idioma` DISABLE KEYS */;
-INSERT INTO `filme_idioma` VALUES (1,1),(1,2);
 /*!40000 ALTER TABLE `filme_idioma` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-19 11:23:49
+-- Dump completed on 2018-11-20 11:26:07

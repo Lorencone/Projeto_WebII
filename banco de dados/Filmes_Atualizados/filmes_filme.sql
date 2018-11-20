@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `filmes` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `filmes`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: filmes
@@ -43,7 +45,7 @@ CREATE TABLE `filme` (
   KEY `fk_filme_pais1_idx` (`id_pais`),
   CONSTRAINT `fk_filme_classificacao1` FOREIGN KEY (`id_classificacao`) REFERENCES `classificacao` (`id_classificacao`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_filme_pais1` FOREIGN KEY (`id_pais`) REFERENCES `pais` (`id_pais`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -52,7 +54,6 @@ CREATE TABLE `filme` (
 
 LOCK TABLES `filme` WRITE;
 /*!40000 ALTER TABLE `filme` DISABLE KEYS */;
-INSERT INTO `filme` VALUES (1,'As Branquelas','1111-01-16','Pixar',12121212,'00:01:20','asdasd','asdasd','https://www.youtube.com/watch?v=aFO_zBptWSM','https://www.youtube.com/watch?v=fCqx_7J5Qx0',2,1212121,'branquelas.jpg',1,149);
 /*!40000 ALTER TABLE `filme` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -65,4 +66,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-19 11:23:49
+-- Dump completed on 2018-11-20 11:26:08

@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `filmes` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `filmes`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: filmes
@@ -23,15 +25,15 @@ DROP TABLE IF EXISTS `filme_equipe_trabalho`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `filme_equipe_trabalho` (
+  `id_filme_equipe_trabalho` int(11) NOT NULL AUTO_INCREMENT,
   `id_filme` int(11) NOT NULL,
-  `id_equipe` int(11) NOT NULL,
-  `id_trabalho` int(11) NOT NULL,
-  PRIMARY KEY (`id_filme`,`id_equipe`,`id_trabalho`),
-  KEY `fk_filme_has_equipe_trabalho_equipe_trabalho1_idx` (`id_equipe`,`id_trabalho`),
-  KEY `fk_filme_has_equipe_trabalho_filme1_idx` (`id_filme`),
-  CONSTRAINT `fk_filme_has_equipe_trabalho_equipe_trabalho1` FOREIGN KEY (`id_equipe`, `id_trabalho`) REFERENCES `equipe_trabalho` (`id_equipe`, `id_trabalho`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_filme_has_equipe_trabalho_filme1` FOREIGN KEY (`id_filme`) REFERENCES `filme` (`id_filme`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+  `id_equipe_trabalho` int(11) NOT NULL,
+  PRIMARY KEY (`id_filme_equipe_trabalho`),
+  KEY `fk_filme_equipe_trabalho_filme1_idx` (`id_filme`),
+  KEY `fk_filme_equipe_trabalho_equipe_trabalho1_idx` (`id_equipe_trabalho`),
+  CONSTRAINT `fk_filme_equipe_trabalho_equipe_trabalho1` FOREIGN KEY (`id_equipe_trabalho`) REFERENCES `equipe_trabalho` (`id_equipe_trabalho`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_filme_equipe_trabalho_filme1` FOREIGN KEY (`id_filme`) REFERENCES `filme` (`id_filme`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -52,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-11-19 11:23:50
+-- Dump completed on 2018-11-20 11:26:09
