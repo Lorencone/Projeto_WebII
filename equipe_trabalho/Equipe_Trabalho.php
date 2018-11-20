@@ -7,11 +7,11 @@ class Equipe_Trabalho
     protected $id_equipe;
     protected $id_trabalho;
 
-    public function recuperarDados()
+    public function recuperarIdEquipeTrabalho($id_equipe_trabalho)
     {
         $conexao = new Conexao();
 
-        $sql = "select * from equipe_trabalho";
+        $sql = "select * from equipe_trabalho where id_equipe_trabalho = $id_equipe_trabalho";
         return $conexao->recuperarDados($sql);
     }
 

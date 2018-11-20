@@ -7,6 +7,14 @@ class Filme_Equipe_Trabalho
     protected $id_filme;
     protected $id_equipe_trabalho;
 
+    public function recuperarFilme()
+    {
+        $conexao = new Conexao();
+
+        $sql = "select * from filme_equipe_trabalho";
+        return $conexao->recuperarDados($sql);
+    }
+
     public function inserir($dados)
     {
         $id_filme = $dados['id_filme'];

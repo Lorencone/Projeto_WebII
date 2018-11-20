@@ -3,8 +3,17 @@ include_once '../conexao/Conexao.php';
 
 class Filme_Genero
 {
+    protected $id_filme_genero;
     protected $id_filme;
     protected $id_genero;
+
+    public function recuperarFilme($id_filme)
+    {
+        $conexao = new Conexao();
+
+        $sql = "select * from filme_genero where id_filme = $id_filme";
+        return $conexao->recuperarDados($sql);
+    }
 
     public function recuperarGenero($id_genero)
     {
@@ -27,11 +36,11 @@ class Filme_Genero
         return $conexao->executar($sql);
     }
 
-//    public function excluir($id_permissao)
-//    {
-//        $conexao = new Conexao();
-//
-//        $sql = "delete from permissao where id_permissao = '$id_permissao'";
-//        return $conexao->executar($sql);
-//    }
+    public function excluir($id_filme_genero)
+    {
+        $conexao = new Conexao();
+
+        $sql = "delete from filme_genero where id_filme_genero = '$id_filme_genero'";
+        return $conexao->executar($sql);
+    }
 }
