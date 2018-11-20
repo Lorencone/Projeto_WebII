@@ -40,8 +40,8 @@ switch ($_GET['acao']) {
                     die;
                 case Perfil::PERFIL_EDITOR:
                     echo "Você e Editor";
-                    die;
                     header('location: ../filme/index.php');
+                    die;
                 case Perfil::PERFIL_ADMINISTRADOR:
                     echo "Você e Administrador";
                     header('location: ../pagina/index.php');
