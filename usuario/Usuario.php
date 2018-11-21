@@ -167,8 +167,8 @@ class Usuario{
         $sql = "SELECT * FROM usuario WHERE email = '$email' and senha = '$senha'";
         $dados = $conexao->recuperarDados($sql);
 
-//        print_r($sql);
-//        die;
+        print_r($sql);
+        die;
 
         if (count($dados)){
 

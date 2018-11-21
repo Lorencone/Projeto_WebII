@@ -175,8 +175,7 @@ include_once("../cabecalho.php");
                             ?>
                             <option required value="<?= $equipe_trabalho['id_equipe_trabalho'];?>">
                                 <?= ($equipe_trabalho['id_equipe'] == $id_equipe['id_equipe'])? "{$id_equipe['nome']}" : ''; ?>
-                                <?= " - ";?>
-                                <?= ($equipe_trabalho['id_trabalho'] == $id_equipe['id_trabalho'])? "{$id_trabalho['nome']}" : ''; ?>
+                                <?= ($equipe_trabalho['id_trabalho'] == $id_trabalho['id_trabalho'])? "{$id_trabalho['nome']}" : ''; ?>
                             </option>
                         <?php
                                 }

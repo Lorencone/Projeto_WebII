@@ -17,7 +17,7 @@ $equipes = $aequipe->recuperarDados();
 $generos = $agenero->recuperarDados();
 $idiomas = $aidioma->recuperarDados();
 $legendas = $alegenda->recuperarDados();
-$trabalhos = $trabalhos->recuperarDados();
+$trabalhos = $atrabalho->recuperarDados();
 $fets = $afet->recuperarFilme($_GET['id_filme']);
 $fgs = $afg->recuperarFilme($_GET['id_filme']);
 $fis = $afi->recuperarFilme($_GET['id_filme']);
@@ -51,25 +51,25 @@ include_once '../cabecalho.php';
         <p><strong>Legenda:</strong>
             <?php foreach ($fls as $fl) { ?>
                 <?php foreach ($legendas as $legenda) { ?>
-                    <?= ($fl['id_legenda'] == $legenda['id_genero']) ? "{$legenda['nome']}" : ''; ?>
+                    <?= ($fl['id_legenda'] == $legenda['id_legenda']) ? "{$legenda['nome']}" : ''; ?>
                 <?php }
             } ?>
         </p>
-        <p><strong>Equipe: </strong>
-            <?php foreach ($fets as $fet) { ?>
-                <?php
-                $ets = $aet->recuperarIdEquipeTrabalho($id_equipe_trabalho);
-                foreach ($ets as $et) { ?>
-                    <?php foreach ($equipes as $equipe) { ?>
-                        <?php foreach ($trabalhos as $trabalho) { ?>
-                            <?= ($et['id_equipe'] == $equipe['id_equipe'])? "{$equipe['nome']}" : ''; ?>
-                            <?= " - ";?>
-                            <?= ($et['id_trabalho'] == $trabalho['id_trabalho'])? "{$trabalho['nome']}" : ''; ?>
-                        <?php }
-                    }
-                }
-            } ?>
-        </p>
+<!--        <p><strong>Equipe: </strong>-->
+<!--            --><?php //foreach ($fets as $fet) { ?>
+<!--                --><?php
+//                $ets = $aet->recuperarEquipeTrabalho($id_equipe_trabalho);
+//                foreach ($ets as $et) { ?>
+<!--                    --><?php //foreach ($equipes as $equipe) { ?>
+<!--                        --><?php //foreach ($trabalhos as $trabalho) { ?>
+<!--                            --><?//= ($et['id_equipe'] == $equipe['id_equipe'])? "{$equipe['nome']}" : ''; ?>
+<!--                            --><?//= " - ";?>
+<!--                            --><?//= ($et['id_trabalho'] == $trabalho['id_trabalho'])? "{$trabalho['nome']}" : ''; ?>
+<!--                        --><?php //}
+//                    }
+//                }
+//            } ?>
+<!--        </p>-->
         <p><strong>Bilheteria: </strong><?= $filme->getBilheteria(); ?></p>
         <p><strong>Duracao: </strong><?= $filme->getDuracao(); ?> minutos</p>
         <p><strong>Sinopse: </strong><?= $filme->getSinopse(); ?></p>

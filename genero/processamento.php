@@ -1,5 +1,5 @@
 <?php
-include_once ('../conexao/conectar.php');
+include_once ('Genero.php');
 
 $genero = new Genero();
 

@@ -1,5 +1,5 @@
 <?php
-include_once ('../conexao/conectar.php');
+include_once ('Usuario.php');
 include_once '../perfil/Perfil.php';
 
 $usuario = new Usuario();
@@ -29,21 +29,19 @@ switch ($_GET['acao']) {
     case 'logar':
 
         $usuario->logar($_POST);
+//        var_dump($usuario->logar($_POST)); die;
 
         if (!empty($_SESSION['usuario'])){
 
             switch ($_SESSION['usuario']['id_perfil']){
 
                 case Perfil::PERFIL_USUARIO:
-                    echo "Você e usuario";
                     header('location: ../categoria/index.php');
                     die;
                 case Perfil::PERFIL_EDITOR:
-                    echo "Você e Editor";
                     header('location: ../filme/index.php');
                     die;
                 case Perfil::PERFIL_ADMINISTRADOR:
-                    echo "Você e Administrador";
                     header('location: ../pagina/index.php');
                     die;
             }

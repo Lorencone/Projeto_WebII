@@ -79,7 +79,7 @@ class Equipe
         $this->sexo = $dados[0]['sexo'];
         $this->data_nascimento = $dados[0]['data_nascimento'];
         $this->id_pais = $dados[0]['id_pais'];
-        $this->id_trabalho = $dados[0]['id_trabalho'];
+        $this->id_equipe = $dados[0]['id_equipe'];
     }
 
     public function inserir($dados)

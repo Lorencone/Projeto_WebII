@@ -1,5 +1,5 @@
 <?php
-include_once ('../conexao/conectar.php');
+include_once ('Classificacao.php');
 
 $classificacao = new Classificacao();
 

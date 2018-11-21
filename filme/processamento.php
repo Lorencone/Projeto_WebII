@@ -1,6 +1,5 @@
-<pre>
 <?php
-include_once ('../conexao/conectar.php');
+include_once ('Filme.php');
 
 $filme = new Filme();
 

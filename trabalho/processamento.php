@@ -1,6 +1,6 @@
 <?php
 
-include_once ('../conexao/conectar.php');
+include_once ('Trabalho.php');
 
 $trabalho = new Trabalho();
 

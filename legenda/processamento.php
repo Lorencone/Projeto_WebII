@@ -1,5 +1,5 @@
 <?php
-include_once ('../conexao/conectar.php');
+include_once ('Legenda.php');
 
 $legenda = new Legenda();
 
